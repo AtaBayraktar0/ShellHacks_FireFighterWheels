@@ -1,0 +1,8 @@
+# [CLAUDE EDIT] added for the GitHub upload
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+pi/results/
+frames/
+*.mp4
