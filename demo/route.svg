@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -3 64 65">
+<text x="0" y="-1" font-size="2.5" font-weight="bold">Algorithm-only demo</text>
+<rect width="60" height="60" fill="#f8fafc"/>
+<path d="M0 0H60V60H0Z" fill="none" stroke="#334155" stroke-width="3"/>
+<rect x="20" y="34" width="15" height="8" rx=".7" fill="#92400e"/>
+<text x="27.5" y="38.7" text-anchor="middle" font-size="2.2" fill="white">Table</text>
+<rect x="40" y="32" width="6" height="19" rx=".7" fill="#64748b"/>
+<text x="43.0" y="42.2" text-anchor="middle" font-size="2.2" fill="white">Shelf</text>
+<rect x="18" y="18" width="7" height="6" rx=".7" fill="#d97706"/>
+<text x="21.5" y="21.7" text-anchor="middle" font-size="2.2" fill="white">Box</text>
+<rect x="42" y="19" width="6" height="5" rx=".7" fill="#d97706"/>
+<text x="45.0" y="22.2" text-anchor="middle" font-size="2.2" fill="white">Box</text>
+<circle cx="32.5" cy="12.0" r="3.4" fill="#ef4444"/>
+<circle cx="32.5" cy="12.5" r="1.5" fill="#facc15"/>
+<polyline points="10.5,49.5 10.5,28.5 25.5,28.5 25.5,27.5 27.5,27.5 27.5,26.5 28.5,26.5 28.5,24.5 29.5,24.5 29.5,19.5 35.5,19.5 35.5,18.5 37.5,18.5 37.5,17.5 38.5,17.5 38.5,15.5 39.5,15.5 39.5,11.5 48.5,11.5" fill="none" stroke="#2563eb" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="10.5" cy="49.5" r="1.2" fill="#16a34a"/>
+<text x="10.5" y="47.7" text-anchor="middle" font-size="2" font-weight="bold">START</text>
+<circle cx="48.5" cy="11.5" r="1.2" fill="#7c3aed"/>
+<text x="48.5" y="9.7" text-anchor="middle" font-size="2" font-weight="bold">GOAL</text>
+</svg>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Algorithm Demo</title>
+<style>
+body{font-family:Arial,sans-serif;background:#e2e8f0;margin:0;color:#0f172a}
+main{max-width:700px;margin:20px auto;padding:18px}section{background:white;padding:18px;border-radius:12px}
+svg{width:100%;height:auto}button{padding:9px 15px;margin-right:8px;border:0;border-radius:7px;background:#334155;color:white}
+#play{background:#2563eb}#status{font-weight:bold;margin-left:10px}
+#new-block{display:none}
+</style></head><body><main><h1>Algorithm-only demo</h1><p>This uses pretend perfect sensor data.</p>
+<section><svg viewBox="-2 -2 64 64"><rect width="60" height="60" fill="#f8fafc"/>
+<path d="M0 0H60V60H0Z" fill="none" stroke="#334155" stroke-width="3"/>
+<rect x="20" y="34" width="15" height="8" rx=".7" fill="#92400e"/>
+<text x="27.5" y="38.7" text-anchor="middle" font-size="2.2" fill="white">Table</text>
+<rect x="40" y="32" width="6" height="19" rx=".7" fill="#64748b"/>
+<text x="43.0" y="42.2" text-anchor="middle" font-size="2.2" fill="white">Shelf</text>
+<rect x="18" y="18" width="7" height="6" rx=".7" fill="#d97706"/>
+<text x="21.5" y="21.7" text-anchor="middle" font-size="2.2" fill="white">Box</text>
+<rect x="42" y="19" width="6" height="5" rx=".7" fill="#d97706"/>
+<text x="45.0" y="22.2" text-anchor="middle" font-size="2.2" fill="white">Box</text>
+<circle cx="32.5" cy="12.0" r="3.4" fill="#ef4444"/>
+<circle cx="32.5" cy="12.5" r="1.5" fill="#facc15"/>
+<polyline points="10.5,49.5 10.5,28.5 25.5,28.5 25.5,27.5 27.5,27.5 27.5,26.5 28.5,26.5 28.5,24.5 29.5,24.5 29.5,19.5 35.5,19.5 35.5,18.5 37.5,18.5 37.5,17.5 38.5,17.5 38.5,15.5 39.5,15.5 39.5,11.5 48.5,11.5" fill="none" stroke="#2563eb" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="10.5" cy="49.5" r="1.2" fill="#16a34a"/>
+<text x="10.5" y="47.7" text-anchor="middle" font-size="2" font-weight="bold">START</text>
+<circle cx="48.5" cy="11.5" r="1.2" fill="#7c3aed"/>
+<text x="48.5" y="9.7" text-anchor="middle" font-size="2" font-weight="bold">GOAL</text>
+<circle id="robot" r="1.3" fill="#2563eb" stroke="white" stroke-width=".35"/></svg>
+<button id="play">Play</button><button id="pause">Pause</button><button id="restart">Restart</button>
+<span id="status">Ready</span></section></main>
+<script>
+const points=[{"x": 10.5, "y": 49.5}, {"x": 10.5, "y": 48.5}, {"x": 10.5, "y": 47.5}, {"x": 10.5, "y": 46.5}, {"x": 10.5, "y": 45.5}, {"x": 10.5, "y": 44.5}, {"x": 10.5, "y": 43.5}, {"x": 10.5, "y": 42.5}, {"x": 10.5, "y": 41.5}, {"x": 10.5, "y": 40.5}, {"x": 10.5, "y": 39.5}, {"x": 10.5, "y": 38.5}, {"x": 10.5, "y": 37.5}, {"x": 10.5, "y": 36.5}, {"x": 10.5, "y": 35.5}, {"x": 10.5, "y": 34.5}, {"x": 10.5, "y": 33.5}, {"x": 10.5, "y": 32.5}, {"x": 10.5, "y": 31.5}, {"x": 10.5, "y": 30.5}, {"x": 10.5, "y": 29.5}, {"x": 10.5, "y": 28.5}, {"x": 11.5, "y": 28.5}, {"x": 12.5, "y": 28.5}, {"x": 13.5, "y": 28.5}, {"x": 14.5, "y": 28.5}, {"x": 15.5, "y": 28.5}, {"x": 16.5, "y": 28.5}, {"x": 17.5, "y": 28.5}, {"x": 18.5, "y": 28.5}, {"x": 19.5, "y": 28.5}, {"x": 20.5, "y": 28.5}, {"x": 21.5, "y": 28.5}, {"x": 22.5, "y": 28.5}, {"x": 23.5, "y": 28.5}, {"x": 24.5, "y": 28.5}, {"x": 25.5, "y": 28.5}, {"x": 25.5, "y": 27.5}, {"x": 26.5, "y": 27.5}, {"x": 27.5, "y": 27.5}, {"x": 27.5, "y": 26.5}, {"x": 28.5, "y": 26.5}, {"x": 28.5, "y": 25.5}, {"x": 28.5, "y": 24.5}, {"x": 29.5, "y": 24.5}, {"x": 29.5, "y": 23.5}, {"x": 29.5, "y": 22.5}, {"x": 29.5, "y": 21.5}, {"x": 29.5, "y": 20.5}, {"x": 29.5, "y": 19.5}, {"x": 30.5, "y": 19.5}, {"x": 31.5, "y": 19.5}, {"x": 32.5, "y": 19.5}, {"x": 33.5, "y": 19.5}, {"x": 34.5, "y": 19.5}, {"x": 35.5, "y": 19.5}, {"x": 35.5, "y": 18.5}, {"x": 36.5, "y": 18.5}, {"x": 37.5, "y": 18.5}, {"x": 37.5, "y": 17.5}, {"x": 38.5, "y": 17.5}, {"x": 38.5, "y": 16.5}, {"x": 38.5, "y": 15.5}, {"x": 39.5, "y": 15.5}, {"x": 39.5, "y": 14.5}, {"x": 39.5, "y": 13.5}, {"x": 39.5, "y": 12.5}, {"x": 39.5, "y": 11.5}, {"x": 40.5, "y": 11.5}, {"x": 41.5, "y": 11.5}, {"x": 42.5, "y": 11.5}, {"x": 43.5, "y": 11.5}, {"x": 44.5, "y": 11.5}, {"x": 45.5, "y": 11.5}, {"x": 46.5, "y": 11.5}, {"x": 47.5, "y": 11.5}, {"x": 48.5, "y": 11.5}, {"x": 47.5, "y": 11.5}, {"x": 46.5, "y": 11.5}, {"x": 45.5, "y": 11.5}, {"x": 44.5, "y": 11.5}, {"x": 43.5, "y": 11.5}, {"x": 42.5, "y": 11.5}, {"x": 41.5, "y": 11.5}, {"x": 40.5, "y": 11.5}, {"x": 39.5, "y": 11.5}, {"x": 39.5, "y": 12.5}, {"x": 39.5, "y": 13.5}, {"x": 39.5, "y": 14.5}, {"x": 39.5, "y": 15.5}, {"x": 38.5, "y": 15.5}, {"x": 38.5, "y": 16.5}, {"x": 38.5, "y": 17.5}, {"x": 37.5, "y": 17.5}, {"x": 37.5, "y": 18.5}, {"x": 36.5, "y": 18.5}, {"x": 35.5, "y": 18.5}, {"x": 35.5, "y": 19.5}, {"x": 34.5, "y": 19.5}, {"x": 33.5, "y": 19.5}, {"x": 32.5, "y": 19.5}, {"x": 31.5, "y": 19.5}, {"x": 30.5, "y": 19.5}, {"x": 29.5, "y": 19.5}, {"x": 29.5, "y": 20.5}, {"x": 29.5, "y": 21.5}, {"x": 29.5, "y": 22.5}, {"x": 29.5, "y": 23.5}, {"x": 29.5, "y": 24.5}, {"x": 28.5, "y": 24.5}, {"x": 28.5, "y": 25.5}, {"x": 28.5, "y": 26.5}, {"x": 27.5, "y": 26.5}, {"x": 27.5, "y": 27.5}, {"x": 26.5, "y": 27.5}, {"x": 25.5, "y": 27.5}, {"x": 25.5, "y": 28.5}, {"x": 24.5, "y": 28.5}, {"x": 23.5, "y": 28.5}, {"x": 22.5, "y": 28.5}, {"x": 21.5, "y": 28.5}, {"x": 20.5, "y": 28.5}, {"x": 19.5, "y": 28.5}, {"x": 18.5, "y": 28.5}, {"x": 17.5, "y": 28.5}, {"x": 16.5, "y": 28.5}, {"x": 15.5, "y": 28.5}, {"x": 14.5, "y": 28.5}, {"x": 13.5, "y": 28.5}, {"x": 12.5, "y": 28.5}, {"x": 11.5, "y": 28.5}, {"x": 10.5, "y": 28.5}, {"x": 10.5, "y": 29.5}, {"x": 10.5, "y": 30.5}, {"x": 10.5, "y": 31.5}, {"x": 10.5, "y": 32.5}, {"x": 10.5, "y": 33.5}, {"x": 10.5, "y": 34.5}, {"x": 10.5, "y": 35.5}, {"x": 10.5, "y": 36.5}, {"x": 10.5, "y": 37.5}, {"x": 10.5, "y": 38.5}, {"x": 10.5, "y": 39.5}, {"x": 10.5, "y": 40.5}, {"x": 10.5, "y": 41.5}, {"x": 10.5, "y": 42.5}, {"x": 10.5, "y": 43.5}, {"x": 10.5, "y": 44.5}, {"x": 10.5, "y": 45.5}, {"x": 10.5, "y": 46.5}, {"x": 10.5, "y": 47.5}, {"x": 10.5, "y": 48.5}, {"x": 10.5, "y": 49.5}],outbound=77,finalStatus="complete";let index=0,playing=false;
+const robot=document.getElementById('robot'),status=document.getElementById('status');
+function show(){const p=points[index];robot.setAttribute('cx',p.x);robot.setAttribute('cy',p.y);
+const block=document.getElementById('new-block');if(block){block.style.display=index>=outbound-1?'block':'none'}
+if(index===points.length-1){status.textContent=finalStatus==='complete'?'Complete: returned home':'Stopped: '+finalStatus}
+else{status.textContent=index<outbound-1?'Driving to goal':'Returning home'}}
+setInterval(()=>{if(playing&&index<points.length-1){index++;show()}else if(index===points.length-1){playing=false}},100);
+document.getElementById('play').onclick=()=>playing=true;
+document.getElementById('pause').onclick=()=>playing=false;
+document.getElementById('restart').onclick=()=>{playing=false;index=0;show()};show();
+</script></body></html>
