@@ -1,4 +1,0 @@
-numpy
-pytest
-opencv-python-headless
-pyserial

@@ -1,7 +1,0 @@
-....................................                                     [100%]
-36 passed in 5.69s
-
-Isaac adapter syntax compilation: passed.
-Linux launcher shell syntax: passed.
-CLI help: passed without Isaac installed.
-Isaac Sim 6.1 / PhysX / RTX runtime: NOT RUN on this machine; desktop smoke test required.

@@ -1,6 +1,0 @@
-pyserial>=3.5
-numpy
-opencv-python          # flame detection (on the Pi: opencv-python-headless is fine)
-pyrealsense2           # D435; Pi only, no Mac wheel needed for the sim
-matplotlib             # optional: --plot and the laptop viewer
-pytest                 # tests
