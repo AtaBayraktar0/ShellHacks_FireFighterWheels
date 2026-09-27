@@ -1,0 +1,308 @@
+{
+  "schema_version": "1.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 0,
+  "layout_hash": "63f718e049e26c42d43e43ca5484d16f3f99320d6034f489ae23057cdd4d7775",
+  "simulation_only": true,
+  "scenario": {
+    "id": "blocked_exit",
+    "title": "Report a blocked exit",
+    "description": "The known launch area becomes obstructed during the return leg.",
+    "expected_outcome": "Stops with a blocked outcome and never claims a successful return."
+  },
+  "metrics": {
+    "steps": 11,
+    "coverage_percent": 100.0,
+    "unobserved_cells": 0,
+    "detections": 1,
+    "people_found": 0,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 1.2,
+    "route_length_cells": 0,
+    "coverage_basis": "Coverage recorded immediately before exit obstruction changed connectivity",
+    "follower_holds": 0,
+    "following_checks": 0,
+    "follower_reacquisitions": 0,
+    "escort_verified": false,
+    "assistance_alerts": 0
+  },
+  "boundary": {
+    "width_m": 1.0,
+    "height_m": 1.0,
+    "resolution_m": 0.1,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 0.6,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "outcome": {
+    "status": "blocked",
+    "title": "Exit blocked \u2014 rover has not returned",
+    "summary": "Return path unavailable through observed free space; rover has not returned to launch",
+    "returned_home": false,
+    "coverage_percent": 100.0,
+    "scenario_applicability": "demonstrated"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Search started",
+      "message": "Frontier exploration is choosing the route from observed free space.",
+      "position": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 2,
+      "step": 11,
+      "sim_time_s": 1.1,
+      "type": "mission",
+      "title": "Returning to launch",
+      "message": "Returning to launch: no reachable observed frontier remains",
+      "position": [
+        7,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "step": 11,
+      "sim_time_s": 1.2,
+      "type": "replan",
+      "title": "Launch area obstructed",
+      "message": "A synthetic occupancy update blocks the known exit. Return must fail explicitly.",
+      "position": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "step": 11,
+      "sim_time_s": 1.2,
+      "type": "discovery",
+      "title": "Exit obstruction reported",
+      "message": "Scripted obstruction at the known launch area. Scripted synthetic entity; not a detector result.",
+      "position": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 5,
+      "step": 11,
+      "sim_time_s": 1.2,
+      "type": "outcome",
+      "title": "Return blocked",
+      "message": "Return path unavailable through observed free space; rover has not returned to launch",
+      "position": [
+        7,
+        3
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "synthetic-exit-block",
+      "kind": "obstruction",
+      "position": [
+        2,
+        7
+      ],
+      "label": "Scripted obstruction at the known launch area",
+      "source": "scripted synthetic entity",
+      "first_seen_step": 11
+    }
+  ],
+  "follower": null,
+  "following_log": [],
+  "alerts": [],
+  "trajectory": [
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      7,
+      2
+    ],
+    [
+      7,
+      3
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 10,
+    "height": 10,
+    "resolution_m": 0.1,
+    "origin_col": 7,
+    "origin_row": 3,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Simulation only: 360-degree sensor; walls include one-cell clearance buffer"
+  },
+  "assumptions": [
+    "Laptop simulation only; no Arduino, motors, or physical camera are controlled.",
+    "Robot routes are calculated by frontier exploration on observed free cells.",
+    "Sensing is an ideal 360-degree grid model, not the D435i camera.",
+    "Person/hazard markers and fault events are scripted synthetic fixtures, not model predictions.",
+    "The scenario author checks hidden-fixture connectivity when placing scripted obstacles; robot route planning still uses observations only.",
+    "Coverage is a hidden-fixture diagnostic, not proof that a real building was fully scanned.",
+    "No age, consciousness, mobility, or medical condition is inferred."
+  ],
+  "hardware_test_performed": false,
+  "acceptance": {
+    "verdict": "pass",
+    "checks": {
+      "terminated": true,
+      "explicit_simulation": true,
+      "no_hardware_test_claim": true,
+      "footprint_within_boundary": true,
+      "consecutive_cell_motion": true,
+      "expected_terminal_state": true
+    }
+  }
+}

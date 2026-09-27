@@ -1,0 +1,824 @@
+{
+  "schema_version": "1.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 0,
+  "layout_hash": "48cc792a4e60a2f189a0b9851a596316ddc0f9182fa406d3524c295c46ceec20",
+  "simulation_only": true,
+  "scenario": {
+    "id": "blocked_exit",
+    "title": "Report a blocked exit",
+    "description": "The known launch area becomes obstructed during the return leg.",
+    "expected_outcome": "Stops with a blocked outcome and never claims a successful return."
+  },
+  "metrics": {
+    "steps": 125,
+    "coverage_percent": 100.0,
+    "unobserved_cells": 0,
+    "detections": 1,
+    "people_found": 0,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 12.6,
+    "route_length_cells": 0,
+    "coverage_basis": "Coverage recorded immediately before exit obstruction changed connectivity",
+    "follower_holds": 0,
+    "following_checks": 0,
+    "follower_reacquisitions": 0,
+    "escort_verified": false,
+    "assistance_alerts": 0
+  },
+  "boundary": {
+    "width_m": 50.0,
+    "height_m": 1.0,
+    "resolution_m": 0.625,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 3.75,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "outcome": {
+    "status": "blocked",
+    "title": "Exit blocked \u2014 rover has not returned",
+    "summary": "Return path unavailable through observed free space; rover has not returned to launch",
+    "returned_home": false,
+    "coverage_percent": 100.0,
+    "scenario_applicability": "demonstrated"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Search started",
+      "message": "Frontier exploration is choosing the route from observed free space.",
+      "position": [
+        11,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "step": 125,
+      "sim_time_s": 12.5,
+      "type": "mission",
+      "title": "Returning to launch",
+      "message": "Returning to launch: no reachable observed frontier remains",
+      "position": [
+        8,
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "step": 125,
+      "sim_time_s": 12.6,
+      "type": "replan",
+      "title": "Launch area obstructed",
+      "message": "A synthetic occupancy update blocks the known exit. Return must fail explicitly.",
+      "position": [
+        11,
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "step": 125,
+      "sim_time_s": 12.6,
+      "type": "discovery",
+      "title": "Exit obstruction reported",
+      "message": "Scripted obstruction at the known launch area. Scripted synthetic entity; not a detector result.",
+      "position": [
+        11,
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "step": 125,
+      "sim_time_s": 12.6,
+      "type": "outcome",
+      "title": "Return blocked",
+      "message": "Return path unavailable through observed free space; rover has not returned to launch",
+      "position": [
+        8,
+        0
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "synthetic-exit-block",
+      "kind": "obstruction",
+      "position": [
+        11,
+        0
+      ],
+      "label": "Scripted obstruction at the known launch area",
+      "source": "scripted synthetic entity",
+      "first_seen_step": 125
+    }
+  ],
+  "follower": null,
+  "following_log": [],
+  "alerts": [],
+  "trajectory": [
+    [
+      11,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      13,
+      0
+    ],
+    [
+      14,
+      0
+    ],
+    [
+      15,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      17,
+      0
+    ],
+    [
+      18,
+      0
+    ],
+    [
+      19,
+      0
+    ],
+    [
+      20,
+      0
+    ],
+    [
+      21,
+      0
+    ],
+    [
+      22,
+      0
+    ],
+    [
+      23,
+      0
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      25,
+      0
+    ],
+    [
+      26,
+      0
+    ],
+    [
+      27,
+      0
+    ],
+    [
+      28,
+      0
+    ],
+    [
+      29,
+      0
+    ],
+    [
+      30,
+      0
+    ],
+    [
+      31,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      33,
+      0
+    ],
+    [
+      34,
+      0
+    ],
+    [
+      35,
+      0
+    ],
+    [
+      36,
+      0
+    ],
+    [
+      37,
+      0
+    ],
+    [
+      38,
+      0
+    ],
+    [
+      39,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      41,
+      0
+    ],
+    [
+      42,
+      0
+    ],
+    [
+      43,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      45,
+      0
+    ],
+    [
+      46,
+      0
+    ],
+    [
+      47,
+      0
+    ],
+    [
+      48,
+      0
+    ],
+    [
+      49,
+      0
+    ],
+    [
+      50,
+      0
+    ],
+    [
+      51,
+      0
+    ],
+    [
+      52,
+      0
+    ],
+    [
+      53,
+      0
+    ],
+    [
+      54,
+      0
+    ],
+    [
+      55,
+      0
+    ],
+    [
+      56,
+      0
+    ],
+    [
+      57,
+      0
+    ],
+    [
+      58,
+      0
+    ],
+    [
+      59,
+      0
+    ],
+    [
+      60,
+      0
+    ],
+    [
+      61,
+      0
+    ],
+    [
+      62,
+      0
+    ],
+    [
+      63,
+      0
+    ],
+    [
+      64,
+      0
+    ],
+    [
+      65,
+      0
+    ],
+    [
+      66,
+      0
+    ],
+    [
+      67,
+      0
+    ],
+    [
+      68,
+      0
+    ],
+    [
+      69,
+      0
+    ],
+    [
+      70,
+      0
+    ],
+    [
+      71,
+      0
+    ],
+    [
+      70,
+      0
+    ],
+    [
+      69,
+      0
+    ],
+    [
+      68,
+      0
+    ],
+    [
+      67,
+      0
+    ],
+    [
+      66,
+      0
+    ],
+    [
+      65,
+      0
+    ],
+    [
+      64,
+      0
+    ],
+    [
+      63,
+      0
+    ],
+    [
+      62,
+      0
+    ],
+    [
+      61,
+      0
+    ],
+    [
+      60,
+      0
+    ],
+    [
+      59,
+      0
+    ],
+    [
+      58,
+      0
+    ],
+    [
+      57,
+      0
+    ],
+    [
+      56,
+      0
+    ],
+    [
+      55,
+      0
+    ],
+    [
+      54,
+      0
+    ],
+    [
+      53,
+      0
+    ],
+    [
+      52,
+      0
+    ],
+    [
+      51,
+      0
+    ],
+    [
+      50,
+      0
+    ],
+    [
+      49,
+      0
+    ],
+    [
+      48,
+      0
+    ],
+    [
+      47,
+      0
+    ],
+    [
+      46,
+      0
+    ],
+    [
+      45,
+      0
+    ],
+    [
+      44,
+      0
+    ],
+    [
+      43,
+      0
+    ],
+    [
+      42,
+      0
+    ],
+    [
+      41,
+      0
+    ],
+    [
+      40,
+      0
+    ],
+    [
+      39,
+      0
+    ],
+    [
+      38,
+      0
+    ],
+    [
+      37,
+      0
+    ],
+    [
+      36,
+      0
+    ],
+    [
+      35,
+      0
+    ],
+    [
+      34,
+      0
+    ],
+    [
+      33,
+      0
+    ],
+    [
+      32,
+      0
+    ],
+    [
+      31,
+      0
+    ],
+    [
+      30,
+      0
+    ],
+    [
+      29,
+      0
+    ],
+    [
+      28,
+      0
+    ],
+    [
+      27,
+      0
+    ],
+    [
+      26,
+      0
+    ],
+    [
+      25,
+      0
+    ],
+    [
+      24,
+      0
+    ],
+    [
+      23,
+      0
+    ],
+    [
+      22,
+      0
+    ],
+    [
+      21,
+      0
+    ],
+    [
+      20,
+      0
+    ],
+    [
+      19,
+      0
+    ],
+    [
+      18,
+      0
+    ],
+    [
+      17,
+      0
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      15,
+      0
+    ],
+    [
+      14,
+      0
+    ],
+    [
+      13,
+      0
+    ],
+    [
+      12,
+      0
+    ],
+    [
+      11,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      9,
+      0
+    ],
+    [
+      8,
+      0
+    ],
+    [
+      7,
+      0
+    ],
+    [
+      8,
+      0
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 80,
+    "height": 2,
+    "resolution_m": 0.625,
+    "origin_col": 8,
+    "origin_row": 0,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Simulation only: 360-degree sensor; walls include one-cell clearance buffer"
+  },
+  "assumptions": [
+    "Laptop simulation only; no Arduino, motors, or physical camera are controlled.",
+    "Robot routes are calculated by frontier exploration on observed free cells.",
+    "Sensing is an ideal 360-degree grid model, not the D435i camera.",
+    "Person/hazard markers and fault events are scripted synthetic fixtures, not model predictions.",
+    "The scenario author checks hidden-fixture connectivity when placing scripted obstacles; robot route planning still uses observations only.",
+    "Coverage is a hidden-fixture diagnostic, not proof that a real building was fully scanned.",
+    "No age, consciousness, mobility, or medical condition is inferred."
+  ],
+  "hardware_test_performed": false,
+  "acceptance": {
+    "verdict": "pass",
+    "checks": {
+      "terminated": true,
+      "explicit_simulation": true,
+      "no_hardware_test_claim": true,
+      "footprint_within_boundary": true,
+      "consecutive_cell_motion": true,
+      "expected_terminal_state": true
+    }
+  }
+}

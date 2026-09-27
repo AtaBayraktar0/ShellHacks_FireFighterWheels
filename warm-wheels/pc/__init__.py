@@ -1,0 +1,1 @@
+"""Optional workstation inference worker."""

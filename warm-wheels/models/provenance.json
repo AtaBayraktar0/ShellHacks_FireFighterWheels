@@ -1,0 +1,90 @@
+{
+  "person": {
+    "file": "yolo11n-pose.pt",
+    "url": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11n-pose.pt",
+    "sha256": "869e83fcdffdc7371fa4e34cd8e51c838cc729571d1635e5141e3075e9319dc0",
+    "publisher": "Ultralytics",
+    "architecture": "YOLO11n pose",
+    "license": "AGPL-3.0",
+    "model_card": "https://huggingface.co/Ultralytics/YOLO11",
+    "labels": {
+      "0": "person"
+    },
+    "dataset": "COCO pose",
+    "bytes": 6255593,
+    "verification": {
+      "sha256_verified": true,
+      "restricted_load_verified": true,
+      "checkpoint_globals": [
+        "builtins.getattr",
+        "torch.nn.modules.activation.SiLU",
+        "torch.nn.modules.batchnorm.BatchNorm2d",
+        "torch.nn.modules.container.ModuleList",
+        "torch.nn.modules.container.Sequential",
+        "torch.nn.modules.conv.Conv2d",
+        "torch.nn.modules.linear.Identity",
+        "torch.nn.modules.pooling.MaxPool2d",
+        "torch.nn.modules.upsampling.Upsample",
+        "ultralytics.nn.modules.block.Attention",
+        "ultralytics.nn.modules.block.Bottleneck",
+        "ultralytics.nn.modules.block.C2PSA",
+        "ultralytics.nn.modules.block.C3k",
+        "ultralytics.nn.modules.block.C3k2",
+        "ultralytics.nn.modules.block.DFL",
+        "ultralytics.nn.modules.block.PSABlock",
+        "ultralytics.nn.modules.block.SPPF",
+        "ultralytics.nn.modules.conv.Concat",
+        "ultralytics.nn.modules.conv.Conv",
+        "ultralytics.nn.modules.conv.DWConv",
+        "ultralytics.nn.modules.head.Detect",
+        "ultralytics.nn.modules.head.Pose",
+        "ultralytics.nn.tasks.PoseModel"
+      ],
+      "labels": {
+        "0": "person"
+      }
+    }
+  },
+  "fire": {
+    "file": "fire.pt",
+    "url": "https://huggingface.co/rabahdev/fire-smoke-yolov8n/resolve/13017fe8af477c25f5298d168e2dfede4b000753/best.pt",
+    "sha256": "b91633799ceb052c814b4f8b77a37efc9a40f002d528df97d74463585fa4f28f",
+    "publisher": "rabahdev",
+    "architecture": "YOLOv8n detection",
+    "license": "AGPL-3.0 (publisher model card)",
+    "model_card": "https://huggingface.co/rabahdev/fire-smoke-yolov8n/blob/13017fe8af477c25f5298d168e2dfede4b000753/README.md",
+    "revision": "13017fe8af477c25f5298d168e2dfede4b000753",
+    "labels": {
+      "0": "smoke",
+      "1": "fire"
+    },
+    "dataset": "D-Fire, according to publisher",
+    "bytes": 6229802,
+    "verification": {
+      "sha256_verified": true,
+      "restricted_load_verified": true,
+      "checkpoint_globals": [
+        "torch.nn.modules.activation.SiLU",
+        "torch.nn.modules.batchnorm.BatchNorm2d",
+        "torch.nn.modules.container.ModuleList",
+        "torch.nn.modules.container.Sequential",
+        "torch.nn.modules.conv.Conv2d",
+        "torch.nn.modules.linear.Identity",
+        "torch.nn.modules.pooling.MaxPool2d",
+        "torch.nn.modules.upsampling.Upsample",
+        "ultralytics.nn.modules.block.Bottleneck",
+        "ultralytics.nn.modules.block.C2f",
+        "ultralytics.nn.modules.block.DFL",
+        "ultralytics.nn.modules.block.SPPF",
+        "ultralytics.nn.modules.conv.Concat",
+        "ultralytics.nn.modules.conv.Conv",
+        "ultralytics.nn.modules.head.Detect",
+        "ultralytics.nn.tasks.DetectionModel"
+      ],
+      "labels": {
+        "0": "smoke",
+        "1": "fire"
+      }
+    }
+  }
+}

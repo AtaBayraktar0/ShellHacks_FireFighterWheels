@@ -1,0 +1,112 @@
+{
+  "created_utc": "2026-09-27T07:32:28.700300+00:00",
+  "test_type": "installation_and_inference_smoke_test_not_accuracy_benchmark",
+  "torch": "2.6.0+cu124",
+  "cuda_runtime": "12.4",
+  "cuda_available": true,
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "ultralytics": "8.4.163",
+  "iterations_after_three_warmups": 20,
+  "image_size": 640,
+  "models": {
+    "person": {
+      "file": "models\\yolo11n-pose.pt",
+      "labels": {
+        "0": "person"
+      },
+      "sha256": "869e83fcdffdc7371fa4e34cd8e51c838cc729571d1635e5141e3075e9319dc0",
+      "sample": "models\\samples\\ultralytics-bus.jpg",
+      "sample_sha256": "c02019c4979c191eb739ddd944445ef408dad5679acab6fd520ef9d434bfbc63",
+      "detections": [
+        {
+          "class": "person",
+          "confidence": 0.887
+        },
+        {
+          "class": "person",
+          "confidence": 0.8809
+        },
+        {
+          "class": "person",
+          "confidence": 0.8778
+        },
+        {
+          "class": "person",
+          "confidence": 0.4571
+        }
+      ],
+      "median_end_to_end_ms": 10.397,
+      "p95_end_to_end_ms": 16.147,
+      "mean_model_inference_ms": 7.963,
+      "installation_inference_pass": true
+    },
+    "fire": {
+      "file": "models\\fire.pt",
+      "labels": {
+        "0": "smoke",
+        "1": "fire"
+      },
+      "sha256": "b91633799ceb052c814b4f8b77a37efc9a40f002d528df97d74463585fa4f28f",
+      "sample": "models\\samples\\dfire-examples.png",
+      "sample_sha256": "7c15b85ad526ed6b7a4f5178e22900eef71d01a68f45fc5ccbebc80a111dfcfa",
+      "detections": [
+        {
+          "class": "smoke",
+          "confidence": 0.8195
+        },
+        {
+          "class": "smoke",
+          "confidence": 0.8165
+        },
+        {
+          "class": "smoke",
+          "confidence": 0.774
+        },
+        {
+          "class": "fire",
+          "confidence": 0.7736
+        },
+        {
+          "class": "smoke",
+          "confidence": 0.6744
+        },
+        {
+          "class": "fire",
+          "confidence": 0.5923
+        },
+        {
+          "class": "smoke",
+          "confidence": 0.5911
+        },
+        {
+          "class": "fire",
+          "confidence": 0.5908
+        },
+        {
+          "class": "smoke",
+          "confidence": 0.4579
+        },
+        {
+          "class": "fire",
+          "confidence": 0.4163
+        },
+        {
+          "class": "fire",
+          "confidence": 0.2844
+        }
+      ],
+      "median_end_to_end_ms": 8.894,
+      "p95_end_to_end_ms": 13.386,
+      "mean_model_inference_ms": 5.246,
+      "installation_inference_pass": true
+    }
+  },
+  "candle_validation": "Not performed; candle flame sensitivity is unknown",
+  "hardware_camera_tested": false,
+  "limitations": [
+    "Public example images can overlap training data; these results are not held-out accuracy.",
+    "No live candle, D435i feed, Wi-Fi latency or real-time robot pipeline was tested.",
+    "Pose cues do not establish age, consciousness or ability to evacuate."
+  ],
+  "verdict": "pass"
+}

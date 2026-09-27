@@ -1,0 +1,303 @@
+{
+  "schema_version": "2.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 0,
+  "layout_hash": "eee11b0e178b2c12e42e4b617e44259ca0cf3aa41689c95e8d41c7513158618a",
+  "mission": {
+    "mode": "procedural",
+    "generation_version": "procedural-v2",
+    "layout_family": "irregular_suites",
+    "observation_gated": true,
+    "environment_evolves": true,
+    "hidden_contents_disclosed": false
+  },
+  "simulation_only": true,
+  "scenario": {
+    "id": "randomized_mission",
+    "title": "Autonomous randomized mission",
+    "description": "Explore an unknown generated place, assess observed simulated actor responses, and choose a return or escort action as conditions change.",
+    "expected_outcome": "Discover what can be observed; report the actual outcome and any unresolved areas or people."
+  },
+  "boundary": {
+    "width_m": 1.0,
+    "height_m": 1.0,
+    "resolution_m": 0.1,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 0.6,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "metrics": {
+    "steps": 14,
+    "logical_ticks": 14,
+    "coverage_percent": 100.0,
+    "unobserved_cells": 0,
+    "coverage_basis": "Simulation diagnostic: observed initial reachable configuration cells; denominator stays fixed as fire grows",
+    "detections": 0,
+    "people_found": 0,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 1.4,
+    "route_length_cells": 0,
+    "follower_holds": 0,
+    "following_checks": 0,
+    "escort_verified": false,
+    "assistance_alerts": 0,
+    "unresolved_observed_people": 0
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Returned with observations",
+    "summary": "Returned to launch: no reachable observed frontier remains",
+    "returned_home": true,
+    "all_clear": false,
+    "coverage_percent": 100.0,
+    "scenario_applicability": "procedural"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Autonomous search started",
+      "message": "Exploring observed free space. World contents remain unknown until sensed.",
+      "position": [
+        2,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "step": 14,
+      "sim_time_s": 1.4,
+      "type": "outcome",
+      "title": "Returned with observations",
+      "message": "Returned to launch: no reachable observed frontier remains. No all-clear is implied.",
+      "position": [
+        2,
+        4
+      ]
+    }
+  ],
+  "entities": [],
+  "follower": null,
+  "alerts": [],
+  "following_log": [],
+  "trajectory": [
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      6
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      2,
+      4
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 10,
+    "height": 10,
+    "resolution_m": 0.1,
+    "origin_col": 2,
+    "origin_row": 4,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Observed configuration space; unobserved cells stay unknown. Synthetic sensor only."
+  },
+  "assumptions": [
+    "Laptop simulation only; no physical camera, Arduino, or motors are controlled.",
+    "Geometry, people, actor responses, fire origins and faults are seeded synthetic world state.",
+    "The navigation fixture uses a separate ideal occupancy observation; the 3D camera mesh is forward-facing and retains only acquired surfaces.",
+    "Person responses require five visible samples; no age, consciousness or medical diagnosis is inferred.",
+    "Fire spreads by bounded cardinal grid growth on physical free cells. This is a synthetic hazard model, not fire physics.",
+    "The 3D scan is accumulated simulated raycast depth, not a physical D435i reconstruction.",
+    "Coverage is an initial-fixture diagnostic. Return does not imply all-clear, successful rescue or a complete scan."
+  ],
+  "hardware_test_performed": false,
+  "simulation_diagnostics": {
+    "label": "HIDDEN GROUND TRUTH \u2014 POST-RUN SOFTWARE DIAGNOSTIC ONLY",
+    "people_total": 0,
+    "fire_origins_total": 0,
+    "people_unobserved": 0,
+    "people": [],
+    "fires": []
+  },
+  "acceptance": {
+    "checks": {
+      "simulation_only": true,
+      "physical_boundary_not_claimed": true,
+      "no_teleport": true,
+      "movement_uses_observed_free_space": true,
+      "physical_destination_free": true,
+      "person_clearance": true,
+      "footprint_stays_inside": true,
+      "alerts_only_delivered_at_home": true,
+      "bounded_termination": true,
+      "depth_surface_acquired": true,
+      "mesh_indices_valid": true,
+      "finite_surface": true,
+      "mesh_memory_bounded": true,
+      "return_reached_home": true
+    },
+    "verdict": "pass",
+    "ticks": 14,
+    "mesh_revisions": 8,
+    "largest_mesh_triangles": 459,
+    "largest_observed_fire_cells": 0,
+    "observed_assessments": []
+  }
+}

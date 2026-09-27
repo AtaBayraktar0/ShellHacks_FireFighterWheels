@@ -1,5 +1,17 @@
 # Fire-avoidance robot — Python prototype
 
+## W.A.R.M wheels application
+
+The current W.A.R.M wheels dashboard, procedural 3D simulator, Raspberry Pi
+camera service, experimental retained RGB-D mapping, Arduino bridge firmware,
+tests and installation guides are in **[warm-wheels/](warm-wheels/README.md)**.
+Run its commands from that directory. See its
+[retained scanning guide](warm-wheels/docs/retained-room-scan.md) for the latest
+mapping workflow. Physical autonomous room exploration remains unfinished.
+
+The original FireBot and Isaac prototype below is preserved separately. Its
+motor listener and the W.A.R.M WN1 bridge use different protocols.
+
 **Updated Isaac launcher:** root `run_isaac.py` now generates our small-room
 scene using the bundled CODEX integration. No external USD files are required.
 Follow [ISAAC_ROOM.md](ISAAC_ROOM.md); it supersedes the external-USD Isaac

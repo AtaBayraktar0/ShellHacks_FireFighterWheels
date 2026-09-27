@@ -1,0 +1,2884 @@
+{
+  "schema_version": "1.0",
+  "baseline_id": "warm-wheels-synthetic-v1",
+  "generated_at_utc": "2026-09-27T07:44:53.669813+00:00",
+  "seed": 0,
+  "randomization": "none; deterministic fixtures and logical clock; seed is recorded but unused",
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.3",
+    "opencv": "4.14.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "rover/mission.py": "a17c3680d08fa902bf3bf125ddb9c16c6102387a6a8e1c66947287ed378f672e",
+    "rover/spatial.py": "8a32028200078d93a19a17531941d84e7d071fc84cbfe410ac3e2693c0ac8c5f",
+    "rover/safety.py": "fd21d875662729bf05ed976bfcfee7201a3f71039dd4c333f1fa21a7a6c8b721",
+    "rover/camera.py": "8d50b5bddb43574c4e241eca9147daa3adba4d220b165b5646fcbb80e191cabd",
+    "validation/run_scenarios.py": "3be28aa57a7ccc4c533dc5d73e031c53b1c1500d49aa057103d47f859b9237d7"
+  },
+  "scope": "Software simulation only. No hardware run, smoke/fire test, human trial, or safety certification.",
+  "summary": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "all_passed": true
+  },
+  "results": [
+    {
+      "scenario_id": "empty_search_return",
+      "description": "Empty whole-place search completes and returns without people/fire",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "mission_complete",
+          "passed": true,
+          "actual": "complete",
+          "expected": "complete"
+        },
+        {
+          "id": "returned_to_launch",
+          "passed": true,
+          "actual": [
+            4,
+            25
+          ],
+          "expected": [
+            4,
+            25
+          ]
+        },
+        {
+          "id": "all_reachable_fixture_cells_observed",
+          "passed": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "id": "all_four_rooms_visited",
+          "passed": true,
+          "actual": 4,
+          "expected": 4
+        },
+        {
+          "id": "person_or_fire_not_required",
+          "passed": true,
+          "actual": "Empty four-room fixture: no fire or person objects",
+          "expected": "Empty four-room fixture: no fire or person objects"
+        }
+      ],
+      "metrics": {
+        "phase": "complete",
+        "reason": "Returned to launch: no reachable observed frontier remains",
+        "steps": 202,
+        "position": [
+          4,
+          25
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 100.0,
+        "unobserved_cells": 0,
+        "reachable_cells": 493,
+        "ticks": 202,
+        "logical_duration_s": 20.2,
+        "visited_room_quadrants": 4,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "9a0f8695982f820647d9c6830e80df5f30906a7ad6fba5ba465c1126d8bd14b6",
+        "detections_supplied": 0
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          16
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          9,
+          14
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          14,
+          9
+        ],
+        [
+          15,
+          9
+        ],
+        [
+          16,
+          9
+        ],
+        [
+          17,
+          9
+        ],
+        [
+          17,
+          10
+        ],
+        [
+          17,
+          11
+        ],
+        [
+          17,
+          10
+        ],
+        [
+          17,
+          9
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          17,
+          7
+        ],
+        [
+          17,
+          6
+        ],
+        [
+          17,
+          5
+        ],
+        [
+          17,
+          4
+        ],
+        [
+          17,
+          3
+        ],
+        [
+          17,
+          2
+        ],
+        [
+          18,
+          2
+        ],
+        [
+          19,
+          2
+        ],
+        [
+          20,
+          2
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          22,
+          2
+        ],
+        [
+          23,
+          2
+        ],
+        [
+          24,
+          2
+        ],
+        [
+          25,
+          2
+        ],
+        [
+          26,
+          2
+        ],
+        [
+          27,
+          2
+        ],
+        [
+          27,
+          3
+        ],
+        [
+          27,
+          4
+        ],
+        [
+          27,
+          5
+        ],
+        [
+          27,
+          6
+        ],
+        [
+          27,
+          7
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          27,
+          9
+        ],
+        [
+          27,
+          10
+        ],
+        [
+          27,
+          11
+        ],
+        [
+          27,
+          10
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          25,
+          10
+        ],
+        [
+          25,
+          11
+        ],
+        [
+          25,
+          12
+        ],
+        [
+          25,
+          13
+        ],
+        [
+          24,
+          13
+        ],
+        [
+          23,
+          13
+        ],
+        [
+          23,
+          14
+        ],
+        [
+          23,
+          15
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          24,
+          17
+        ],
+        [
+          25,
+          17
+        ],
+        [
+          26,
+          17
+        ],
+        [
+          27,
+          17
+        ],
+        [
+          27,
+          18
+        ],
+        [
+          27,
+          19
+        ],
+        [
+          27,
+          20
+        ],
+        [
+          27,
+          21
+        ],
+        [
+          27,
+          22
+        ],
+        [
+          27,
+          23
+        ],
+        [
+          27,
+          24
+        ],
+        [
+          27,
+          25
+        ],
+        [
+          27,
+          26
+        ],
+        [
+          27,
+          25
+        ],
+        [
+          26,
+          25
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          24,
+          25
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          22,
+          25
+        ],
+        [
+          21,
+          25
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          20,
+          26
+        ],
+        [
+          20,
+          27
+        ],
+        [
+          19,
+          27
+        ],
+        [
+          18,
+          27
+        ],
+        [
+          17,
+          27
+        ],
+        [
+          17,
+          26
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          17,
+          24
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          17,
+          22
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          16,
+          21
+        ],
+        [
+          15,
+          21
+        ],
+        [
+          14,
+          21
+        ],
+        [
+          13,
+          21
+        ],
+        [
+          13,
+          20
+        ],
+        [
+          13,
+          19
+        ],
+        [
+          12,
+          19
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          8,
+          18
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          13,
+          2
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          13,
+          4
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          13,
+          7
+        ],
+        [
+          13,
+          8
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          13,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          9,
+          14
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          9,
+          16
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          19
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          7,
+          19
+        ],
+        [
+          6,
+          19
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          21
+        ],
+        [
+          6,
+          22
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          6,
+          24
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    },
+    {
+      "scenario_id": "operator_early_return",
+      "description": "Operator abort returns home with explicitly incomplete coverage",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "abort_does_not_teleport",
+          "passed": true,
+          "actual": [
+            11,
+            20
+          ],
+          "expected": [
+            11,
+            20
+          ]
+        },
+        {
+          "id": "abort_enters_returning",
+          "passed": true,
+          "actual": "returning",
+          "expected": "returning"
+        },
+        {
+          "id": "mission_complete",
+          "passed": true,
+          "actual": "complete",
+          "expected": "complete"
+        },
+        {
+          "id": "returned_to_launch",
+          "passed": true,
+          "actual": [
+            4,
+            25
+          ],
+          "expected": [
+            4,
+            25
+          ]
+        },
+        {
+          "id": "partial_scan_reported",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        }
+      ],
+      "metrics": {
+        "phase": "complete",
+        "reason": "Returned to launch: operator requested early return",
+        "steps": 24,
+        "position": [
+          4,
+          25
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 21.1,
+        "unobserved_cells": 389,
+        "reachable_cells": 493,
+        "ticks": 24,
+        "logical_duration_s": 2.4,
+        "visited_room_quadrants": 1,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "a8e844dda0095a8eaafaedb1338003bbd28edf3cedb8e0946ca4d619a36e8fc0",
+        "abort_at_tick": 12
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    },
+    {
+      "scenario_id": "blocked_launch",
+      "description": "Observed blocked launch is reported; no pretend return",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "blocked_return_reported",
+          "passed": true,
+          "actual": "blocked",
+          "expected": "blocked"
+        },
+        {
+          "id": "no_false_return",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "blocked_is_stable",
+          "passed": true,
+          "actual": "blocked",
+          "expected": "blocked"
+        }
+      ],
+      "metrics": {
+        "phase": "blocked",
+        "reason": "Return path unavailable through observed free space; rover has not returned to launch",
+        "steps": 12,
+        "position": [
+          11,
+          20
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 0.0,
+        "unobserved_cells": 0,
+        "reachable_cells": 0,
+        "ticks": 13,
+        "logical_duration_s": 1.3,
+        "visited_room_quadrants": 1,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "3e0f0bb4c414cc3c8ba68de0424908e8b779dd65f912693071d934c6413009a9",
+        "fault": "synthetic observed obstacle covering launch cell"
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          11,
+          20
+        ]
+      ]
+    },
+    {
+      "scenario_id": "exploration_step_budget",
+      "description": "Step-budget exhaustion returns before exploration is complete",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "mission_complete",
+          "passed": true,
+          "actual": "complete",
+          "expected": "complete"
+        },
+        {
+          "id": "returned_to_launch",
+          "passed": true,
+          "actual": [
+            4,
+            25
+          ],
+          "expected": [
+            4,
+            25
+          ]
+        },
+        {
+          "id": "step_budget_reason",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "partial_scan_reported",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        }
+      ],
+      "metrics": {
+        "phase": "complete",
+        "reason": "Returned to launch: exploration step budget reached; scan may be incomplete",
+        "steps": 20,
+        "position": [
+          4,
+          25
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 20.1,
+        "unobserved_cells": 394,
+        "reachable_cells": 493,
+        "ticks": 20,
+        "logical_duration_s": 2.0,
+        "visited_room_quadrants": 1,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "38c27ad0db7c561ccbddadc0a1dd6485ef317a34352feb78e1fabd6c709694f2",
+        "exploration_step_budget": 10
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    },
+    {
+      "scenario_id": "depth_data_holes",
+      "description": "Zero/NaN/infinite front depth produces unknown clearance and zero software command",
+      "passed": true,
+      "checks": [
+        {
+          "id": "zero_clearance_unknown",
+          "passed": true,
+          "actual": null,
+          "expected": null
+        },
+        {
+          "id": "zero_zero_command",
+          "passed": true,
+          "actual": [
+            0,
+            0
+          ],
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "zero_disarmed",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "id": "nan_clearance_unknown",
+          "passed": true,
+          "actual": null,
+          "expected": null
+        },
+        {
+          "id": "nan_zero_command",
+          "passed": true,
+          "actual": [
+            0,
+            0
+          ],
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "nan_disarmed",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "id": "infinite_clearance_unknown",
+          "passed": true,
+          "actual": null,
+          "expected": null
+        },
+        {
+          "id": "infinite_zero_command",
+          "passed": true,
+          "actual": [
+            0,
+            0
+          ],
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "infinite_disarmed",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        }
+      ],
+      "metrics": {
+        "cases": [
+          {
+            "input": "zero",
+            "clearance_m": null,
+            "command": [
+              0,
+              0
+            ],
+            "reason": "Forward clearance unknown"
+          },
+          {
+            "input": "nan",
+            "clearance_m": null,
+            "command": [
+              0,
+              0
+            ],
+            "reason": "Forward clearance unknown"
+          },
+          {
+            "input": "infinite",
+            "clearance_m": null,
+            "command": [
+              0,
+              0
+            ],
+            "reason": "Forward clearance unknown"
+          }
+        ],
+        "hardware_motor_calls": 0
+      }
+    },
+    {
+      "scenario_id": "dropped_data",
+      "description": "Stale camera data and expired operator leases stop software output",
+      "passed": true,
+      "checks": [
+        {
+          "id": "stale_frame_zero_command",
+          "passed": true,
+          "actual": [
+            0,
+            0
+          ],
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "expired_command_lease_zero_command",
+          "passed": true,
+          "actual": [
+            0,
+            0
+          ],
+          "expected": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "frame_fault_disarms",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        }
+      ],
+      "metrics": {
+        "cases": [
+          {
+            "fault": "stale_frame",
+            "command": [
+              0,
+              0
+            ],
+            "reason": "Camera frame missing or stale",
+            "armed_after": false
+          },
+          {
+            "fault": "expired_command_lease",
+            "command": [
+              0,
+              0
+            ],
+            "reason": "Hold a drive control to move",
+            "armed_after": true
+          }
+        ],
+        "max_frame_age_s": 0.45,
+        "command_lease_s": 0.3,
+        "hardware_motor_calls": 0
+      }
+    },
+    {
+      "scenario_id": "changed_obstacle_replan",
+      "description": "New observed obstacle changes the return route",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "return_route_changed",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "blocked_next_cell_not_entered",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "mission_complete",
+          "passed": true,
+          "actual": "complete",
+          "expected": "complete"
+        },
+        {
+          "id": "returned_to_launch",
+          "passed": true,
+          "actual": [
+            4,
+            25
+          ],
+          "expected": [
+            4,
+            25
+          ]
+        }
+      ],
+      "metrics": {
+        "phase": "complete",
+        "reason": "Returned to launch: operator requested early return",
+        "steps": 28,
+        "position": [
+          4,
+          25
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 23.8,
+        "unobserved_cells": 371,
+        "reachable_cells": 487,
+        "ticks": 28,
+        "logical_duration_s": 2.8,
+        "visited_room_quadrants": 1,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "a4d59852a50819bbcf6ccd9a37f48b438bd8ca887bbe8bd9bf82ed2b42ba1b0e",
+        "injected_obstacle": [
+          11,
+          22
+        ],
+        "old_route": [
+          [
+            11,
+            20
+          ],
+          [
+            11,
+            21
+          ],
+          [
+            11,
+            22
+          ],
+          [
+            11,
+            23
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            11,
+            25
+          ],
+          [
+            10,
+            25
+          ],
+          [
+            9,
+            25
+          ],
+          [
+            8,
+            25
+          ],
+          [
+            7,
+            25
+          ],
+          [
+            6,
+            25
+          ],
+          [
+            5,
+            25
+          ],
+          [
+            4,
+            25
+          ]
+        ],
+        "replanned_route": [
+          [
+            12,
+            20
+          ],
+          [
+            13,
+            20
+          ],
+          [
+            13,
+            21
+          ],
+          [
+            13,
+            22
+          ],
+          [
+            13,
+            23
+          ],
+          [
+            13,
+            24
+          ],
+          [
+            13,
+            25
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            11,
+            25
+          ],
+          [
+            10,
+            25
+          ],
+          [
+            9,
+            25
+          ],
+          [
+            8,
+            25
+          ],
+          [
+            7,
+            25
+          ],
+          [
+            6,
+            25
+          ],
+          [
+            5,
+            25
+          ],
+          [
+            4,
+            25
+          ]
+        ],
+        "synthetic_observation_supplied": true
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          11,
+          23
+        ],
+        [
+          11,
+          22
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          12,
+          20
+        ],
+        [
+          13,
+          20
+        ],
+        [
+          13,
+          21
+        ],
+        [
+          13,
+          22
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          13,
+          24
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          12,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    },
+    {
+      "scenario_id": "cluttered_static_fixture",
+      "description": "Additional stationary solid objects are explored around; no people modeled",
+      "passed": true,
+      "checks": [
+        {
+          "id": "terminates_within_700_ticks",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "id": "no_unknown_or_noncardinal_moves",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "id": "mission_complete",
+          "passed": true,
+          "actual": "complete",
+          "expected": "complete"
+        },
+        {
+          "id": "returned_to_launch",
+          "passed": true,
+          "actual": [
+            4,
+            25
+          ],
+          "expected": [
+            4,
+            25
+          ]
+        },
+        {
+          "id": "all_reachable_fixture_cells_observed",
+          "passed": true,
+          "actual": 0,
+          "expected": 0
+        }
+      ],
+      "metrics": {
+        "phase": "complete",
+        "reason": "Returned to launch: no reachable observed frontier remains",
+        "steps": 228,
+        "position": [
+          4,
+          25
+        ],
+        "home": [
+          4,
+          25
+        ],
+        "coverage_percent": 100.0,
+        "unobserved_cells": 0,
+        "reachable_cells": 391,
+        "ticks": 228,
+        "logical_duration_s": 22.8,
+        "visited_room_quadrants": 4,
+        "motion_invariant_violations": 0,
+        "trajectory_sha256": "87590c245097753925b2fcfe5f28ef90041e47d44d9165390ddc57e7b4c9d787",
+        "injected_solid_fixture_objects": [
+          [
+            11,
+            5
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            20,
+            5
+          ],
+          [
+            24,
+            12
+          ],
+          [
+            5,
+            20
+          ],
+          [
+            11,
+            27
+          ],
+          [
+            19,
+            26
+          ],
+          [
+            26,
+            19
+          ]
+        ],
+        "objects_are_people": false,
+        "synthetic_observation_supplied": false
+      },
+      "trajectory": [
+        [
+          4,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          12,
+          25
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          13,
+          26
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          13,
+          24
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          14,
+          23
+        ],
+        [
+          15,
+          23
+        ],
+        [
+          16,
+          23
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          17,
+          24
+        ],
+        [
+          18,
+          24
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          20,
+          23
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          20
+        ],
+        [
+          22,
+          20
+        ],
+        [
+          23,
+          20
+        ],
+        [
+          24,
+          20
+        ],
+        [
+          24,
+          19
+        ],
+        [
+          24,
+          18
+        ],
+        [
+          24,
+          17
+        ],
+        [
+          25,
+          17
+        ],
+        [
+          26,
+          17
+        ],
+        [
+          27,
+          17
+        ],
+        [
+          26,
+          17
+        ],
+        [
+          25,
+          17
+        ],
+        [
+          24,
+          17
+        ],
+        [
+          23,
+          17
+        ],
+        [
+          23,
+          16
+        ],
+        [
+          23,
+          15
+        ],
+        [
+          23,
+          14
+        ],
+        [
+          22,
+          14
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          22,
+          12
+        ],
+        [
+          22,
+          11
+        ],
+        [
+          22,
+          10
+        ],
+        [
+          23,
+          10
+        ],
+        [
+          24,
+          10
+        ],
+        [
+          25,
+          10
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          26,
+          9
+        ],
+        [
+          26,
+          8
+        ],
+        [
+          26,
+          7
+        ],
+        [
+          26,
+          6
+        ],
+        [
+          26,
+          5
+        ],
+        [
+          26,
+          4
+        ],
+        [
+          25,
+          4
+        ],
+        [
+          24,
+          4
+        ],
+        [
+          23,
+          4
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          21,
+          3
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          19,
+          3
+        ],
+        [
+          18,
+          3
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          18,
+          5
+        ],
+        [
+          18,
+          6
+        ],
+        [
+          18,
+          7
+        ],
+        [
+          19,
+          7
+        ],
+        [
+          20,
+          7
+        ],
+        [
+          21,
+          7
+        ],
+        [
+          20,
+          7
+        ],
+        [
+          19,
+          7
+        ],
+        [
+          18,
+          7
+        ],
+        [
+          17,
+          7
+        ],
+        [
+          16,
+          7
+        ],
+        [
+          15,
+          7
+        ],
+        [
+          14,
+          7
+        ],
+        [
+          13,
+          7
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          13,
+          4
+        ],
+        [
+          13,
+          3
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          10,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          7,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          16
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          2,
+          17
+        ],
+        [
+          3,
+          17
+        ],
+        [
+          4,
+          17
+        ],
+        [
+          5,
+          17
+        ],
+        [
+          6,
+          17
+        ],
+        [
+          7,
+          17
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          11,
+          17
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          16
+        ],
+        [
+          9,
+          15
+        ],
+        [
+          9,
+          14
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          10,
+          13
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          12
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          11,
+          9
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          14,
+          9
+        ],
+        [
+          15,
+          9
+        ],
+        [
+          16,
+          9
+        ],
+        [
+          17,
+          9
+        ],
+        [
+          18,
+          9
+        ],
+        [
+          19,
+          9
+        ],
+        [
+          20,
+          9
+        ],
+        [
+          21,
+          9
+        ],
+        [
+          21,
+          10
+        ],
+        [
+          22,
+          10
+        ],
+        [
+          23,
+          10
+        ],
+        [
+          24,
+          10
+        ],
+        [
+          25,
+          10
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          26,
+          11
+        ],
+        [
+          26,
+          10
+        ],
+        [
+          25,
+          10
+        ],
+        [
+          24,
+          10
+        ],
+        [
+          23,
+          10
+        ],
+        [
+          22,
+          10
+        ],
+        [
+          22,
+          11
+        ],
+        [
+          22,
+          12
+        ],
+        [
+          22,
+          13
+        ],
+        [
+          22,
+          14
+        ],
+        [
+          22,
+          15
+        ],
+        [
+          22,
+          16
+        ],
+        [
+          22,
+          17
+        ],
+        [
+          21,
+          17
+        ],
+        [
+          20,
+          17
+        ],
+        [
+          19,
+          17
+        ],
+        [
+          18,
+          17
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          17,
+          19
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          17,
+          22
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          17,
+          24
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          17,
+          26
+        ],
+        [
+          17,
+          25
+        ],
+        [
+          17,
+          24
+        ],
+        [
+          17,
+          23
+        ],
+        [
+          16,
+          23
+        ],
+        [
+          15,
+          23
+        ],
+        [
+          14,
+          23
+        ],
+        [
+          13,
+          23
+        ],
+        [
+          13,
+          24
+        ],
+        [
+          13,
+          25
+        ],
+        [
+          12,
+          25
+        ],
+        [
+          11,
+          25
+        ],
+        [
+          10,
+          25
+        ],
+        [
+          9,
+          25
+        ],
+        [
+          8,
+          25
+        ],
+        [
+          7,
+          25
+        ],
+        [
+          6,
+          25
+        ],
+        [
+          5,
+          25
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    }
+  ],
+  "baseline_comparison": null
+}

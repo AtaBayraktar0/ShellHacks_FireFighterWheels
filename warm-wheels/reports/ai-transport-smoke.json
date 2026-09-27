@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-27",
+  "purpose": "Bounded synthetic frame-to-inference-to-observation transport verification",
+  "environment": {
+    "python_environment": ".venv-ai",
+    "device": "CUDA 0",
+    "models": ["models/yolo11n-pose.pt", "models/fire.pt"],
+    "person_confidence": 0.45,
+    "fire_confidence": 0.35,
+    "image_size": 640
+  },
+  "local_demo": {
+    "command": "START_AI.cmd --source demo --allow-demo --max-frames 3 --max-seconds 10",
+    "exit_code": 0,
+    "frames_seen": 3,
+    "submitted": 3,
+    "discarded": 0,
+    "errors": 0,
+    "elapsed_s": 0.297,
+    "mode": "demo"
+  },
+  "gateway_demo_before_generation_guard": {
+    "command": "START_AI.cmd --source joined --allow-demo --max-frames 3 --max-seconds 10",
+    "source": "Local laptop gateway connected to a second local synthetic server",
+    "exit_code": 0,
+    "frames_seen": 3,
+    "submitted": 3,
+    "discarded": 0,
+    "errors": 0,
+    "elapsed_s": 0.313,
+    "mode": "demo"
+  },
+  "synthetic_opt_in_guard": {
+    "command": "START_AI.cmd --source demo --max-frames 1 --max-seconds 2",
+    "expected_exit_code": 1,
+    "actual_exit_code": 1,
+    "message": "Demo transport testing requires --allow-demo."
+  },
+  "final_generation_aware_gateway_demo": {
+    "command": "START_AI.cmd --source joined --allow-demo --max-frames 3 --max-seconds 10",
+    "source": "Current local laptop gateway connected to its own synthetic source for transport verification",
+    "exit_code": 0,
+    "frames_seen": 3,
+    "submitted": 3,
+    "discarded": 0,
+    "errors": 0,
+    "elapsed_s": 0.265,
+    "mode": "demo",
+    "generation_header_required_and_echoed": true,
+    "mesh_http_status": 200,
+    "mesh_generation_header_present": true,
+    "old_generation_detection_after_reconnect_http_status": 409,
+    "gateway_disconnected_after_test": true
+  },
+  "verification_limits": [
+    "Both source servers generated synthetic frames; no physical Raspberry Pi network or RealSense camera was tested.",
+    "No serial port, motor command, firmware upload, or physical rover motion was used.",
+    "Elapsed values measure this short warmed-up worker loop and are not a physical rover frame-rate guarantee.",
+    "Predictions on synthetic frames do not establish person, fire, smoke, or candle accuracy.",
+    "Gateway generation protection was also checked after reconnect; the prior source generation was rejected with HTTP 409."
+  ]
+}
