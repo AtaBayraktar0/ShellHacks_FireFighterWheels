@@ -1,0 +1,3143 @@
+{
+  "schema_version": "1.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 4,
+  "layout_hash": "a86323a5c644c735998d2e353caede08fee0d5b3e586b1b76a483fc9e908d561",
+  "simulation_only": true,
+  "scenario": {
+    "id": "escort_following",
+    "title": "Escort and verify following",
+    "description": "A scripted mobile actor follows the rover. A temporary follower pause makes the rover wait and reacquire.",
+    "expected_outcome": "Returns with the actor verified in the launch zone, logging every following check."
+  },
+  "metrics": {
+    "steps": 72,
+    "coverage_percent": 52.0,
+    "unobserved_cells": 293,
+    "detections": 1,
+    "people_found": 1,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 9.1,
+    "route_length_cells": 0,
+    "coverage_basis": "Simulation diagnostic: observed reachable cells of the hidden clearance fixture",
+    "follower_holds": 6,
+    "following_checks": 95,
+    "follower_reacquisitions": 7,
+    "escort_verified": true,
+    "assistance_alerts": 0
+  },
+  "boundary": {
+    "width_m": 6.0,
+    "height_m": 6.0,
+    "resolution_m": 0.2,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 1.2,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Escort complete \u2014 follower verified at launch",
+    "summary": "Returned to launch: scripted mobile actor following; escort to launch",
+    "returned_home": true,
+    "coverage_percent": 52.0,
+    "scenario_applicability": "demonstrated"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Search started",
+      "message": "Frontier exploration is choosing the route from observed free space.",
+      "position": [
+        4,
+        25
+      ]
+    },
+    {
+      "id": 2,
+      "step": 36,
+      "sim_time_s": 3.6,
+      "type": "discovery",
+      "title": "Person marker observed",
+      "message": "Person marker \u00b7 assistance unassessed. Scripted synthetic entity; not a detector result.",
+      "position": [
+        25,
+        7
+      ]
+    },
+    {
+      "id": 3,
+      "step": 36,
+      "sim_time_s": 3.6,
+      "type": "decision",
+      "title": "Mobile actor response received \u2014 escort initiated",
+      "message": "The scenario supplies a willing mobile actor. Following distance and visibility must remain verified.",
+      "position": [
+        25,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "step": 36,
+      "sim_time_s": 3.6,
+      "type": "mission",
+      "title": "Returning to launch",
+      "message": "Returning to launch: scripted mobile actor following; escort to launch",
+      "position": [
+        20,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "step": 36,
+      "sim_time_s": 3.7,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        20,
+        5
+      ]
+    },
+    {
+      "id": 6,
+      "step": 36,
+      "sim_time_s": 4.0,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        23,
+        5
+      ]
+    },
+    {
+      "id": 7,
+      "step": 41,
+      "sim_time_s": 4.5,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        16,
+        6
+      ]
+    },
+    {
+      "id": 8,
+      "step": 41,
+      "sim_time_s": 4.7,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        16,
+        5
+      ]
+    },
+    {
+      "id": 9,
+      "step": 44,
+      "sim_time_s": 5.0,
+      "type": "follower",
+      "title": "Scripted follower pauses and becomes occluded",
+      "message": "The actor stops for one logical second. Following verification must stop rover progress.",
+      "position": [
+        16,
+        6
+      ]
+    },
+    {
+      "id": 10,
+      "step": 44,
+      "sim_time_s": 5.0,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        14,
+        7
+      ]
+    },
+    {
+      "id": 11,
+      "step": 44,
+      "sim_time_s": 5.9,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        16,
+        6
+      ]
+    },
+    {
+      "id": 12,
+      "step": 45,
+      "sim_time_s": 6.0,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        14,
+        8
+      ]
+    },
+    {
+      "id": 13,
+      "step": 45,
+      "sim_time_s": 6.2,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        14,
+        7
+      ]
+    },
+    {
+      "id": 14,
+      "step": 49,
+      "sim_time_s": 6.6,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        11,
+        9
+      ]
+    },
+    {
+      "id": 15,
+      "step": 49,
+      "sim_time_s": 6.7,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        11,
+        8
+      ]
+    },
+    {
+      "id": 16,
+      "step": 55,
+      "sim_time_s": 7.3,
+      "type": "follower",
+      "title": "Waiting for verified following",
+      "message": "Rover holds position until the scripted actor is visible and within the following limit.",
+      "position": [
+        9,
+        13
+      ]
+    },
+    {
+      "id": 17,
+      "step": 55,
+      "sim_time_s": 7.4,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        9,
+        12
+      ]
+    },
+    {
+      "id": 18,
+      "step": 72,
+      "sim_time_s": 9.1,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        6,
+        25
+      ]
+    },
+    {
+      "id": 19,
+      "step": 72,
+      "sim_time_s": 9.1,
+      "type": "follower",
+      "title": "Follower verified in the launch zone",
+      "message": "The actor arrived by consecutive grid moves and is visible within the launch-zone distance.",
+      "position": [
+        6,
+        25
+      ]
+    },
+    {
+      "id": 20,
+      "step": 72,
+      "sim_time_s": 9.1,
+      "type": "outcome",
+      "title": "Returned to launch",
+      "message": "Returned to launch: scripted mobile actor following; escort to launch",
+      "position": [
+        4,
+        25
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "synthetic-person-1",
+      "kind": "person",
+      "position": [
+        6,
+        25
+      ],
+      "label": "Person marker \u00b7 assistance unassessed",
+      "source": "scripted synthetic entity",
+      "first_seen_step": 36
+    }
+  ],
+  "follower": {
+    "position": [
+      6,
+      25
+    ],
+    "visible": true,
+    "distance_m": 0.4,
+    "following_verified": true,
+    "at_launch_zone": true,
+    "state": "arrived",
+    "source": "scripted synthetic actor",
+    "trail": [
+      [
+        25,
+        7
+      ],
+      [
+        25,
+        6
+      ],
+      [
+        25,
+        5
+      ],
+      [
+        24,
+        5
+      ],
+      [
+        23,
+        5
+      ],
+      [
+        22,
+        5
+      ],
+      [
+        21,
+        5
+      ],
+      [
+        20,
+        5
+      ],
+      [
+        19,
+        5
+      ],
+      [
+        18,
+        5
+      ],
+      [
+        17,
+        5
+      ],
+      [
+        16,
+        5
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        16,
+        7
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        13,
+        8
+      ],
+      [
+        12,
+        8
+      ],
+      [
+        11,
+        8
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        11,
+        10
+      ],
+      [
+        11,
+        11
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        10,
+        12
+      ],
+      [
+        9,
+        12
+      ],
+      [
+        9,
+        13
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        9,
+        15
+      ],
+      [
+        9,
+        16
+      ],
+      [
+        9,
+        17
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        19
+      ],
+      [
+        9,
+        20
+      ],
+      [
+        9,
+        21
+      ],
+      [
+        9,
+        22
+      ],
+      [
+        9,
+        23
+      ],
+      [
+        9,
+        24
+      ],
+      [
+        9,
+        25
+      ],
+      [
+        8,
+        25
+      ],
+      [
+        7,
+        25
+      ],
+      [
+        6,
+        25
+      ]
+    ]
+  },
+  "following_log": [
+    {
+      "step": 36,
+      "sim_time_s": 3.6,
+      "rover": [
+        20,
+        5
+      ],
+      "person": [
+        25,
+        7
+      ],
+      "distance_m": 1.077,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 36,
+      "sim_time_s": 3.7,
+      "rover": [
+        20,
+        5
+      ],
+      "person": [
+        25,
+        6
+      ],
+      "distance_m": 1.02,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 36,
+      "sim_time_s": 3.8,
+      "rover": [
+        20,
+        5
+      ],
+      "person": [
+        25,
+        5
+      ],
+      "distance_m": 1.0,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 36,
+      "sim_time_s": 3.9,
+      "rover": [
+        20,
+        5
+      ],
+      "person": [
+        24,
+        5
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 36,
+      "sim_time_s": 4.0,
+      "rover": [
+        20,
+        5
+      ],
+      "person": [
+        23,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 37,
+      "sim_time_s": 4.0,
+      "rover": [
+        19,
+        5
+      ],
+      "person": [
+        23,
+        5
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 37,
+      "sim_time_s": 4.1,
+      "rover": [
+        19,
+        5
+      ],
+      "person": [
+        22,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 38,
+      "sim_time_s": 4.1,
+      "rover": [
+        18,
+        5
+      ],
+      "person": [
+        22,
+        5
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 38,
+      "sim_time_s": 4.2,
+      "rover": [
+        18,
+        5
+      ],
+      "person": [
+        21,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 39,
+      "sim_time_s": 4.2,
+      "rover": [
+        17,
+        5
+      ],
+      "person": [
+        21,
+        5
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 39,
+      "sim_time_s": 4.3,
+      "rover": [
+        17,
+        5
+      ],
+      "person": [
+        20,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 40,
+      "sim_time_s": 4.3,
+      "rover": [
+        16,
+        5
+      ],
+      "person": [
+        20,
+        5
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 40,
+      "sim_time_s": 4.4,
+      "rover": [
+        16,
+        5
+      ],
+      "person": [
+        19,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 41,
+      "sim_time_s": 4.4,
+      "rover": [
+        16,
+        6
+      ],
+      "person": [
+        19,
+        5
+      ],
+      "distance_m": 0.632,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 41,
+      "sim_time_s": 4.5,
+      "rover": [
+        16,
+        6
+      ],
+      "person": [
+        18,
+        5
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 41,
+      "sim_time_s": 4.6,
+      "rover": [
+        16,
+        6
+      ],
+      "person": [
+        17,
+        5
+      ],
+      "distance_m": 0.283,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 41,
+      "sim_time_s": 4.7,
+      "rover": [
+        16,
+        6
+      ],
+      "person": [
+        16,
+        5
+      ],
+      "distance_m": 0.2,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 42,
+      "sim_time_s": 4.7,
+      "rover": [
+        16,
+        7
+      ],
+      "person": [
+        16,
+        5
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 42,
+      "sim_time_s": 4.8,
+      "rover": [
+        16,
+        7
+      ],
+      "person": [
+        16,
+        5
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 43,
+      "sim_time_s": 4.8,
+      "rover": [
+        15,
+        7
+      ],
+      "person": [
+        16,
+        5
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 43,
+      "sim_time_s": 4.9,
+      "rover": [
+        15,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.283,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 44,
+      "sim_time_s": 4.9,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.0,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.1,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.2,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.3,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.4,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.5,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.6,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.7,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.8,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 44,
+      "sim_time_s": 5.9,
+      "rover": [
+        14,
+        7
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 45,
+      "sim_time_s": 5.9,
+      "rover": [
+        14,
+        8
+      ],
+      "person": [
+        16,
+        6
+      ],
+      "distance_m": 0.566,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 45,
+      "sim_time_s": 6.0,
+      "rover": [
+        14,
+        8
+      ],
+      "person": [
+        16,
+        7
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 45,
+      "sim_time_s": 6.1,
+      "rover": [
+        14,
+        8
+      ],
+      "person": [
+        15,
+        7
+      ],
+      "distance_m": 0.283,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 45,
+      "sim_time_s": 6.2,
+      "rover": [
+        14,
+        8
+      ],
+      "person": [
+        14,
+        7
+      ],
+      "distance_m": 0.2,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 46,
+      "sim_time_s": 6.2,
+      "rover": [
+        13,
+        8
+      ],
+      "person": [
+        14,
+        7
+      ],
+      "distance_m": 0.283,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 46,
+      "sim_time_s": 6.3,
+      "rover": [
+        13,
+        8
+      ],
+      "person": [
+        14,
+        7
+      ],
+      "distance_m": 0.283,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 47,
+      "sim_time_s": 6.3,
+      "rover": [
+        12,
+        8
+      ],
+      "person": [
+        14,
+        7
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 47,
+      "sim_time_s": 6.4,
+      "rover": [
+        12,
+        8
+      ],
+      "person": [
+        14,
+        8
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 48,
+      "sim_time_s": 6.4,
+      "rover": [
+        11,
+        8
+      ],
+      "person": [
+        14,
+        8
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 48,
+      "sim_time_s": 6.5,
+      "rover": [
+        11,
+        8
+      ],
+      "person": [
+        13,
+        8
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 49,
+      "sim_time_s": 6.5,
+      "rover": [
+        11,
+        9
+      ],
+      "person": [
+        13,
+        8
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 49,
+      "sim_time_s": 6.6,
+      "rover": [
+        11,
+        9
+      ],
+      "person": [
+        12,
+        8
+      ],
+      "distance_m": 0.283,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 49,
+      "sim_time_s": 6.7,
+      "rover": [
+        11,
+        9
+      ],
+      "person": [
+        11,
+        8
+      ],
+      "distance_m": 0.2,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 50,
+      "sim_time_s": 6.7,
+      "rover": [
+        11,
+        10
+      ],
+      "person": [
+        11,
+        8
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 50,
+      "sim_time_s": 6.8,
+      "rover": [
+        11,
+        10
+      ],
+      "person": [
+        11,
+        8
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 51,
+      "sim_time_s": 6.8,
+      "rover": [
+        11,
+        11
+      ],
+      "person": [
+        11,
+        8
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 51,
+      "sim_time_s": 6.9,
+      "rover": [
+        11,
+        11
+      ],
+      "person": [
+        11,
+        9
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 52,
+      "sim_time_s": 6.9,
+      "rover": [
+        11,
+        12
+      ],
+      "person": [
+        11,
+        9
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 52,
+      "sim_time_s": 7.0,
+      "rover": [
+        11,
+        12
+      ],
+      "person": [
+        11,
+        10
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 53,
+      "sim_time_s": 7.0,
+      "rover": [
+        10,
+        12
+      ],
+      "person": [
+        11,
+        10
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 53,
+      "sim_time_s": 7.1,
+      "rover": [
+        10,
+        12
+      ],
+      "person": [
+        11,
+        11
+      ],
+      "distance_m": 0.283,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 54,
+      "sim_time_s": 7.1,
+      "rover": [
+        9,
+        12
+      ],
+      "person": [
+        11,
+        11
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 54,
+      "sim_time_s": 7.2,
+      "rover": [
+        9,
+        12
+      ],
+      "person": [
+        11,
+        12
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 55,
+      "sim_time_s": 7.2,
+      "rover": [
+        9,
+        13
+      ],
+      "person": [
+        11,
+        12
+      ],
+      "distance_m": 0.447,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 55,
+      "sim_time_s": 7.3,
+      "rover": [
+        9,
+        13
+      ],
+      "person": [
+        10,
+        12
+      ],
+      "distance_m": 0.283,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 55,
+      "sim_time_s": 7.4,
+      "rover": [
+        9,
+        13
+      ],
+      "person": [
+        9,
+        12
+      ],
+      "distance_m": 0.2,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 56,
+      "sim_time_s": 7.4,
+      "rover": [
+        9,
+        14
+      ],
+      "person": [
+        9,
+        12
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 56,
+      "sim_time_s": 7.5,
+      "rover": [
+        9,
+        14
+      ],
+      "person": [
+        9,
+        12
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 57,
+      "sim_time_s": 7.5,
+      "rover": [
+        9,
+        15
+      ],
+      "person": [
+        9,
+        12
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 57,
+      "sim_time_s": 7.6,
+      "rover": [
+        9,
+        15
+      ],
+      "person": [
+        9,
+        13
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 58,
+      "sim_time_s": 7.6,
+      "rover": [
+        9,
+        16
+      ],
+      "person": [
+        9,
+        13
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 58,
+      "sim_time_s": 7.7,
+      "rover": [
+        9,
+        16
+      ],
+      "person": [
+        9,
+        14
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 59,
+      "sim_time_s": 7.7,
+      "rover": [
+        9,
+        17
+      ],
+      "person": [
+        9,
+        14
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 59,
+      "sim_time_s": 7.8,
+      "rover": [
+        9,
+        17
+      ],
+      "person": [
+        9,
+        15
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 60,
+      "sim_time_s": 7.8,
+      "rover": [
+        9,
+        18
+      ],
+      "person": [
+        9,
+        15
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 60,
+      "sim_time_s": 7.9,
+      "rover": [
+        9,
+        18
+      ],
+      "person": [
+        9,
+        16
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 61,
+      "sim_time_s": 7.9,
+      "rover": [
+        9,
+        19
+      ],
+      "person": [
+        9,
+        16
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 61,
+      "sim_time_s": 8.0,
+      "rover": [
+        9,
+        19
+      ],
+      "person": [
+        9,
+        17
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 62,
+      "sim_time_s": 8.0,
+      "rover": [
+        9,
+        20
+      ],
+      "person": [
+        9,
+        17
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 62,
+      "sim_time_s": 8.1,
+      "rover": [
+        9,
+        20
+      ],
+      "person": [
+        9,
+        18
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 63,
+      "sim_time_s": 8.1,
+      "rover": [
+        9,
+        21
+      ],
+      "person": [
+        9,
+        18
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 63,
+      "sim_time_s": 8.2,
+      "rover": [
+        9,
+        21
+      ],
+      "person": [
+        9,
+        19
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 64,
+      "sim_time_s": 8.2,
+      "rover": [
+        9,
+        22
+      ],
+      "person": [
+        9,
+        19
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 64,
+      "sim_time_s": 8.3,
+      "rover": [
+        9,
+        22
+      ],
+      "person": [
+        9,
+        20
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 65,
+      "sim_time_s": 8.3,
+      "rover": [
+        9,
+        23
+      ],
+      "person": [
+        9,
+        20
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 65,
+      "sim_time_s": 8.4,
+      "rover": [
+        9,
+        23
+      ],
+      "person": [
+        9,
+        21
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 66,
+      "sim_time_s": 8.4,
+      "rover": [
+        9,
+        24
+      ],
+      "person": [
+        9,
+        21
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 66,
+      "sim_time_s": 8.5,
+      "rover": [
+        9,
+        24
+      ],
+      "person": [
+        9,
+        22
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 67,
+      "sim_time_s": 8.5,
+      "rover": [
+        9,
+        25
+      ],
+      "person": [
+        9,
+        22
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 67,
+      "sim_time_s": 8.6,
+      "rover": [
+        9,
+        25
+      ],
+      "person": [
+        9,
+        23
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 68,
+      "sim_time_s": 8.6,
+      "rover": [
+        8,
+        25
+      ],
+      "person": [
+        9,
+        23
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 68,
+      "sim_time_s": 8.7,
+      "rover": [
+        8,
+        25
+      ],
+      "person": [
+        9,
+        24
+      ],
+      "distance_m": 0.283,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 69,
+      "sim_time_s": 8.7,
+      "rover": [
+        7,
+        25
+      ],
+      "person": [
+        9,
+        24
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 69,
+      "sim_time_s": 8.8,
+      "rover": [
+        7,
+        25
+      ],
+      "person": [
+        9,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 70,
+      "sim_time_s": 8.8,
+      "rover": [
+        6,
+        25
+      ],
+      "person": [
+        9,
+        25
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 70,
+      "sim_time_s": 8.9,
+      "rover": [
+        6,
+        25
+      ],
+      "person": [
+        8,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 71,
+      "sim_time_s": 8.9,
+      "rover": [
+        5,
+        25
+      ],
+      "person": [
+        8,
+        25
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 71,
+      "sim_time_s": 9.0,
+      "rover": [
+        5,
+        25
+      ],
+      "person": [
+        7,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "sim_time_s": 9.0,
+      "rover": [
+        4,
+        25
+      ],
+      "person": [
+        7,
+        25
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "sim_time_s": 9.0,
+      "rover": [
+        4,
+        25
+      ],
+      "person": [
+        7,
+        25
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "sim_time_s": 9.1,
+      "rover": [
+        4,
+        25
+      ],
+      "person": [
+        6,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "sim_time_s": 9.1,
+      "rover": [
+        4,
+        25
+      ],
+      "person": [
+        6,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "sim_time_s": 9.1,
+      "rover": [
+        4,
+        25
+      ],
+      "person": [
+        6,
+        25
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    }
+  ],
+  "alerts": [],
+  "trajectory": [
+    [
+      4,
+      25
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      4,
+      23
+    ],
+    [
+      4,
+      22
+    ],
+    [
+      4,
+      21
+    ],
+    [
+      4,
+      20
+    ],
+    [
+      4,
+      19
+    ],
+    [
+      4,
+      18
+    ],
+    [
+      4,
+      17
+    ],
+    [
+      4,
+      16
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      5,
+      15
+    ],
+    [
+      5,
+      14
+    ],
+    [
+      6,
+      14
+    ],
+    [
+      7,
+      14
+    ],
+    [
+      8,
+      14
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      11,
+      8
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      13,
+      8
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      14,
+      7
+    ],
+    [
+      15,
+      7
+    ],
+    [
+      16,
+      7
+    ],
+    [
+      16,
+      6
+    ],
+    [
+      16,
+      5
+    ],
+    [
+      17,
+      5
+    ],
+    [
+      18,
+      5
+    ],
+    [
+      19,
+      5
+    ],
+    [
+      20,
+      5
+    ],
+    [
+      19,
+      5
+    ],
+    [
+      18,
+      5
+    ],
+    [
+      17,
+      5
+    ],
+    [
+      16,
+      5
+    ],
+    [
+      16,
+      6
+    ],
+    [
+      16,
+      7
+    ],
+    [
+      15,
+      7
+    ],
+    [
+      14,
+      7
+    ],
+    [
+      14,
+      8
+    ],
+    [
+      13,
+      8
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      11,
+      8
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      9,
+      15
+    ],
+    [
+      9,
+      16
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      19
+    ],
+    [
+      9,
+      20
+    ],
+    [
+      9,
+      21
+    ],
+    [
+      9,
+      22
+    ],
+    [
+      9,
+      23
+    ],
+    [
+      9,
+      24
+    ],
+    [
+      9,
+      25
+    ],
+    [
+      8,
+      25
+    ],
+    [
+      7,
+      25
+    ],
+    [
+      6,
+      25
+    ],
+    [
+      5,
+      25
+    ],
+    [
+      4,
+      25
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 30,
+    "height": 30,
+    "resolution_m": 0.2,
+    "origin_col": 4,
+    "origin_row": 25,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Simulation only: 360-degree sensor; walls include one-cell clearance buffer"
+  },
+  "assumptions": [
+    "Laptop simulation only; no Arduino, motors, or physical camera are controlled.",
+    "Robot routes are calculated by frontier exploration on observed free cells.",
+    "Sensing is an ideal 360-degree grid model, not the D435i camera.",
+    "Person/hazard markers and fault events are scripted synthetic fixtures, not model predictions.",
+    "The scenario author checks hidden-fixture connectivity when placing scripted obstacles; robot route planning still uses observations only.",
+    "Coverage is a hidden-fixture diagnostic, not proof that a real building was fully scanned.",
+    "No age, consciousness, mobility, or medical condition is inferred."
+  ],
+  "hardware_test_performed": false,
+  "acceptance": {
+    "verdict": "pass",
+    "checks": {
+      "terminated": true,
+      "explicit_simulation": true,
+      "no_hardware_test_claim": true,
+      "footprint_within_boundary": true,
+      "consecutive_cell_motion": true,
+      "expected_terminal_state": true,
+      "person_observed": true,
+      "follower_arrived": true,
+      "following_measured": true,
+      "actor_never_teleports": true
+    }
+  }
+}

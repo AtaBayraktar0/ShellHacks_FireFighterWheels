@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11191e">
+  <title>W.A.R.M wheels · Recon console</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon" aria-hidden="true">W<span>↗</span></span><div><h1>W.A.R.M wheels</h1><p>Indoor reconnaissance prototype</p></div></div>
+    <div class="header-status"><span id="mode-badge" class="badge neutral">CONNECTING</span><span id="connection" class="connection"><i></i> Waiting for rover</span><button class="estop" id="estop">■ Emergency stop</button></div>
+  </header>
+
+  <main>
+    <nav class="view-navigation" aria-label="Project views"><a href="/presentation">Mission theater</a><a href="/scan" id="scan-view-link">3D depth scan ↗</a><a href="/connect">Connect Raspberry Pi</a></nav>
+    <section class="overview">
+      <div><p class="eyebrow">RECON / OPERATOR CONSOLE</p><h2>See more. Stay clear.</h2><p class="muted">A local view of people, potential fire cues, and the path ahead.</p></div>
+      <form id="auth-form" class="auth-form"><label for="token">Rover access token</label><div class="input-group"><input id="token" type="password" placeholder="Enter token to connect" autocomplete="off" spellcheck="false"><button class="button secondary" type="submit">Connect</button></div><span id="auth-note">Stored only in this browser session.</span></form>
+    </section>
+
+    <div id="notice" class="notice" role="status"><span class="notice-mark">i</span><span>Connecting to the rover. Motor controls remain locked until live status is available.</span></div>
+
+    <section class="metrics" aria-label="Rover telemetry">
+      <div class="metric"><span class="metric-label">CAMERA</span><strong id="metric-camera">Awaiting feed</strong><span id="metric-frame">No frames received</span></div>
+      <div class="metric"><span class="metric-label">FORWARD CLEARANCE</span><strong id="metric-clearance">— <small>m</small></strong><span>Depth within the current view</span></div>
+      <div class="metric"><span class="metric-label">DEPTH COVERAGE</span><strong id="metric-depth">— <small>%</small></strong><span>Valid depth pixels</span></div>
+      <div class="metric"><span class="metric-label">DRIVE STATUS</span><strong id="metric-drive">Locked</strong><span id="metric-motor">Waiting for motor controller</span></div>
+    </section>
+
+    <div class="workspace">
+      <section class="panel feeds-panel">
+        <div class="panel-heading"><div><p class="eyebrow">01 / PERCEPTION</p><h3>Eyes on the scene</h3></div><span id="feed-label" class="small-tag">NO FEED</span></div>
+        <div class="feed-container">
+          <div class="feed-caption"><span class="live-dot"></span>RGB CAMERA<span id="frame-time">—</span></div>
+          <div class="feed-frame" id="color-frame"><img id="color-image" alt="Rover color camera view" hidden><canvas id="detection-overlay" aria-label="Detection locations"></canvas><div class="feed-placeholder" id="color-placeholder"><span class="viewfinder">⌗</span><p>Waiting for the camera</p><small>Your rover’s view will appear here</small></div></div>
+          <div class="feed-bottom"><span>Intel RealSense D435i</span><span id="inference-label">Perception waiting</span></div>
+        </div>
+        <div class="depth-heading"><h4>Depth view</h4><div class="depth-legend"><span>Near</span><i></i><span>Far</span></div></div>
+        <div class="depth-frame"><img id="depth-image" alt="Colorized depth camera image" hidden><div class="feed-placeholder" id="depth-placeholder"><p>No depth data yet</p></div></div>
+        <p class="panel-note">Depth describes visible surfaces only. Smoke, reflections, and blind spots can leave gaps.</p>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="panel-heading"><div><p class="eyebrow">02 / SPATIAL VIEW</p><h3>The space ahead</h3></div><span class="small-tag">LOCAL SCAN</span></div>
+        <div class="tabs" role="tablist" aria-label="Spatial view"><button id="tab-map" class="tab active" role="tab" aria-selected="true" aria-controls="map-view">Local scan</button><button id="tab-cloud" class="tab" role="tab" aria-selected="false" aria-controls="cloud-view" tabindex="-1">3D point cloud</button><button id="tab-mission" class="tab" role="tab" aria-selected="false" aria-controls="mission-view" tabindex="-1">Search mission</button></div>
+        <div id="map-view" class="map-view" role="tabpanel" aria-labelledby="tab-map"><canvas id="map-canvas" aria-label="Local occupancy map. Click an observed free cell to preview a route."></canvas><span class="canvas-hint">Click a free cell to preview a route</span><div class="map-compass" aria-hidden="true">↑<span>CAMERA FORWARD</span></div></div>
+        <div id="cloud-view" class="map-view" role="tabpanel" aria-labelledby="tab-cloud" hidden><canvas id="cloud-canvas" aria-label="Camera-local colored 3D point cloud. Drag to orbit."></canvas><span class="canvas-hint">Drag to orbit · Scroll to zoom</span><button id="reset-cloud" class="canvas-button">Reset view</button></div>
+        <div id="mission-view" role="tabpanel" aria-labelledby="tab-mission" hidden>
+          <p class="mission-caption"><span class="small-tag">SIMULATION ONLY</span>Local depth view · Forward camera</p>
+          <div class="map-view"><canvas id="mission-canvas" aria-label="Simulated search mission in an empty floorplan. The rover explores reachable space and returns to its starting location."></canvas><span class="canvas-hint">Simulated search and return · No physical motor commands</span></div>
+          <div class="mission-status"><div><span class="metric-label">MISSION PHASE</span><strong id="mission-phase">Idle</strong></div><div><span class="metric-label">SIMULATED COVERAGE</span><strong id="mission-coverage">0%</strong></div></div>
+          <div class="coverage-track" aria-hidden="true"><span id="mission-progress"></span></div>
+          <p id="mission-detail" class="mission-detail" role="status">Explore an empty simulated floorplan, then return to the starting point.</p>
+          <div class="mission-actions"><button id="mission-start" class="button primary" disabled>Explore &amp; return</button><button id="mission-return" class="button secondary" disabled>Return home</button></div>
+          <p class="panel-note">The mission simulator uses a separate synthetic scene. Its 3D camera view is forward-facing and retains only surfaces it has acquired; hardware exploration still needs localization and persistent mapping.</p>
+        </div>
+        <div class="map-legend"><span><i class="legend-free"></i>Observed free</span><span><i class="legend-occupied"></i>Occupied</span><span><i class="legend-unknown"></i>Unknown</span><span><i class="legend-route"></i>Route preview</span></div>
+        <div id="local-route-summary" class="route-summary"><span class="route-icon" aria-hidden="true">↗</span><div><strong id="route-title">Choose a local destination</strong><p id="route-detail">Preview a path through currently observed free space.</p></div></div>
+        <p id="local-scan-note" class="panel-note">Camera-local route preview. Physical autonomous escort is not enabled. This is not a complete house map.<br><span id="observation-age">Detection markers appear only when depth positions are available.</span></p>
+        <div class="event-header"><h4>Activity</h4><span>SESSION LOG</span></div><ol id="event-log" class="event-log" aria-live="polite" aria-relevant="additions"><li><time>--:--:--</time><span>Operator console ready</span></li></ol>
+      </section>
+
+      <aside class="sidebar">
+        <section class="panel detections-panel"><div class="panel-heading"><div><p class="eyebrow">03 / OBSERVATIONS</p><h3>People &amp; hazards</h3></div><span id="detection-count" class="count-badge">0</span></div><p class="detection-note">Computer vision suggests observations. The operator confirms assistance needs.</p><div id="detections" class="detections"><div class="empty-state"><span aria-hidden="true">◎</span><p>Nothing observed yet</p><small>Detections will appear when a feed is available.</small></div></div></section>
+        <section class="panel controls-panel"><div class="panel-heading"><div><p class="eyebrow">04 / MANUAL DRIVE</p><h3>Keep it in sight</h3></div><span id="arm-status" class="small-tag">DISARMED</span></div><p id="drive-reason" class="drive-reason" role="status">Connect to the rover to unlock controls.</p><div class="arming"><button id="arm" class="button primary" disabled>Arm rover</button><button id="disarm" class="button secondary" disabled>Disarm</button></div><div class="drive-pad" aria-label="Hold a direction to drive"><button class="drive-button" id="drive-left" aria-label="Hold to arc forward left" disabled>↖<span>Left arc</span></button><button class="drive-button" id="drive-forward" aria-label="Hold to move forward" disabled>↑<span>Forward</span></button><button class="drive-button" id="drive-right" aria-label="Hold to arc forward right" disabled>↗<span>Right arc</span></button><button class="drive-stop" id="drive-stop">■ <span>Stop motion</span></button></div><p class="hold-note">Hold to move · Release to stop · Max 25% command</p><button id="reset" class="reset-button" disabled>Reset emergency latch</button><p class="panel-note">Forward-only supervised operation. Keep the rover in sight and use a clear test area.</p></section>
+      </aside>
+    </div>
+    <footer><span><span class="footer-dot"></span>W.A.R.M wheels / SHELLHACKS PROTOTYPE</span><span>Human assessment. Supervised movement.</span></footer>
+  </main>
+  <div id="toast" class="toast" role="alert" hidden></div>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "suite": "warm-wheels-hardware-bench",
+  "created_utc": "2026-09-27T06:53:27.883521+00:00",
+  "mode": "demo",
+  "scope": "camera_only",
+  "duration_requested_s": 2.0,
+  "limits": {
+    "minimum_capture_fps": 10.0,
+    "maximum_frame_gap_s": 0.45,
+    "maximum_delivery_age_s": 0.45,
+    "minimum_mean_valid_depth_fraction": 0.85,
+    "minimum_frames": 2,
+    "valid_depth_minimum_m": 0.1,
+    "valid_depth_maximum_m": 6.0
+  },
+  "environment": {
+    "os": "Windows",
+    "architecture": "AMD64",
+    "python": "3.12.10",
+    "usb": {
+      "status": "unavailable",
+      "reason": "Linux sysfs USB probe only",
+      "devices": []
+    }
+  },
+  "checks": {
+    "serial": {
+      "status": "skipped",
+      "reason": "No serial port requested",
+      "drive_commands_sent": 0
+    },
+    "camera_stream": {
+      "status": "pass",
+      "evidence": "Aligned RGB/depth pairs received"
+    },
+    "camera_cleanup": {
+      "status": "pass"
+    },
+    "minimum_frames": {
+      "status": "pass",
+      "evidence": 29
+    },
+    "capture_fps": {
+      "status": "pass",
+      "evidence": 14.448
+    },
+    "frame_gap": {
+      "status": "pass",
+      "evidence": 0.079
+    },
+    "delivery_age": {
+      "status": "pass",
+      "evidence": 0.0
+    },
+    "depth_validity": {
+      "status": "pass",
+      "evidence": 1.0
+    },
+    "usb_link": {
+      "status": "unavailable",
+      "evidence_mbps": [],
+      "note": "USB 3 link target is at least 5000 Mbps; capability alone does not measure stream quality"
+    }
+  },
+  "errors": [],
+  "metrics": {
+    "frames": 29,
+    "capture_fps": 14.448,
+    "maximum_frame_gap_s": 0.079,
+    "maximum_delivery_age_s": 0.0,
+    "mean_valid_depth_fraction": 1.0,
+    "minimum_valid_depth_fraction": 1.0,
+    "elapsed_s": 2.0
+  },
+  "verdict": "pass",
+  "limitations": [
+    "Synthetic data cannot validate hardware.",
+    "Capture timestamps measure host delivery, not calibrated sensor exposure time.",
+    "Software checks do not establish physical rotation, braking or safe navigation.",
+    "Operating-system scheduling and device timeouts can exceed requested duration."
+  ]
+}

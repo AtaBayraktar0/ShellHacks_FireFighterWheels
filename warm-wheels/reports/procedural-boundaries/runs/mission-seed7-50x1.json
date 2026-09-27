@@ -1,0 +1,426 @@
+{
+  "schema_version": "2.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 7,
+  "layout_hash": "ff7b036ba4d748610e97c7aee7a14c7feded63bba9b033d6e0e647b375c86404",
+  "mission": {
+    "mode": "procedural",
+    "generation_version": "procedural-v2",
+    "layout_family": "open_plan",
+    "observation_gated": true,
+    "environment_evolves": true,
+    "hidden_contents_disclosed": false
+  },
+  "simulation_only": true,
+  "scenario": {
+    "id": "randomized_mission",
+    "title": "Autonomous randomized mission",
+    "description": "Explore an unknown generated place, assess observed simulated actor responses, and choose a return or escort action as conditions change.",
+    "expected_outcome": "Discover what can be observed; report the actual outcome and any unresolved areas or people."
+  },
+  "boundary": {
+    "width_m": 50.0,
+    "height_m": 1.0,
+    "resolution_m": 0.625,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 3.75,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "metrics": {
+    "steps": 0,
+    "logical_ticks": 4,
+    "coverage_percent": 16.9,
+    "unobserved_cells": 64,
+    "coverage_basis": "Simulation diagnostic: observed initial reachable configuration cells; denominator stays fixed as fire grows",
+    "detections": 1,
+    "people_found": 1,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 0.4,
+    "route_length_cells": 0,
+    "follower_holds": 0,
+    "following_checks": 0,
+    "escort_verified": false,
+    "assistance_alerts": 1,
+    "unresolved_observed_people": 1
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Returned with observations",
+    "summary": "Returned to launch: observed actor requires assistance; return to outside team with location; unresolved observed people are included in the report",
+    "returned_home": true,
+    "all_clear": false,
+    "coverage_percent": 16.9,
+    "scenario_applicability": "procedural"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Autonomous search started",
+      "message": "Exploring observed free space. World contents remain unknown until sensed.",
+      "position": [
+        31,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "discovery",
+      "title": "Person observed \u2014 assessing response",
+      "message": "Collecting repeated visible actor responses; posture alone does not establish a medical state.",
+      "position": [
+        33,
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "step": 0,
+      "sim_time_s": 0.4,
+      "type": "decision",
+      "title": "Assistance response \u2014 return and alert",
+      "message": "Repeated explicit simulated help requests. Returning with the last observed location.",
+      "position": [
+        33,
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "step": 0,
+      "sim_time_s": 0.4,
+      "type": "outcome",
+      "title": "Returned with observations",
+      "message": "Returned to launch: observed actor requires assistance; return to outside team with location. No all-clear is implied.",
+      "position": [
+        31,
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "step": 0,
+      "sim_time_s": 0.4,
+      "type": "alert",
+      "title": "Observed person locations reported at launch",
+      "message": "Unresolved people are listed with their last observed positions; physical rescue is not claimed."
+    }
+  ],
+  "entities": [
+    {
+      "id": "sim-person-2",
+      "kind": "person",
+      "position": [
+        33,
+        0
+      ],
+      "label": "Simulated person \u00b7 assistance needed",
+      "source": "simulated sensor observation",
+      "visible": true,
+      "last_seen_tick": 4,
+      "posture": "crouched",
+      "assessment": {
+        "state": "assistance_needed",
+        "status": "assistance_needed",
+        "samples": 5,
+        "required_samples": 5,
+        "evidence": "Repeated explicit simulated help requests",
+        "source": "simulated actor observations"
+      },
+      "response": "assistance_needed",
+      "disposition": "observed"
+    }
+  ],
+  "follower": null,
+  "alerts": [
+    {
+      "kind": "assistance_needed",
+      "person_id": "sim-person-2",
+      "position": [
+        33,
+        0
+      ],
+      "response": "assistance_needed",
+      "source": "simulated actor observations",
+      "delivered_at_home": true,
+      "step": 0
+    }
+  ],
+  "following_log": [],
+  "trajectory": [
+    [
+      31,
+      0
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 80,
+    "height": 2,
+    "resolution_m": 0.625,
+    "origin_col": 31,
+    "origin_row": 0,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Observed configuration space; unobserved cells stay unknown. Synthetic sensor only."
+  },
+  "assumptions": [
+    "Laptop simulation only; no physical camera, Arduino, or motors are controlled.",
+    "Geometry, people, actor responses, fire origins and faults are seeded synthetic world state.",
+    "The navigation fixture uses a separate ideal occupancy observation; the 3D camera mesh is forward-facing and retains only acquired surfaces.",
+    "Person responses require five visible samples; no age, consciousness or medical diagnosis is inferred.",
+    "Fire spreads by bounded cardinal grid growth on physical free cells. This is a synthetic hazard model, not fire physics.",
+    "The 3D scan is accumulated simulated raycast depth, not a physical D435i reconstruction.",
+    "Coverage is an initial-fixture diagnostic. Return does not imply all-clear, successful rescue or a complete scan."
+  ],
+  "hardware_test_performed": false,
+  "simulation_diagnostics": {
+    "label": "HIDDEN GROUND TRUTH \u2014 POST-RUN SOFTWARE DIAGNOSTIC ONLY",
+    "people_total": 2,
+    "fire_origins_total": 1,
+    "people_unobserved": 1,
+    "people": [
+      {
+        "id": "sim-person-1",
+        "response_fixture": "assistance_needed",
+        "initial_position": [
+          70,
+          0
+        ],
+        "actual_trail": [
+          [
+            70,
+            0
+          ]
+        ],
+        "arrived": false
+      },
+      {
+        "id": "sim-person-2",
+        "response_fixture": "assistance_needed",
+        "initial_position": [
+          33,
+          0
+        ],
+        "actual_trail": [
+          [
+            33,
+            0
+          ]
+        ],
+        "arrived": false
+      }
+    ],
+    "fires": [
+      {
+        "id": "sim-fire-1",
+        "origin": [
+          30,
+          0
+        ],
+        "physical_cells": [
+          [
+            30,
+            0
+          ]
+        ],
+        "active": false,
+        "intensity": 0.216
+      }
+    ]
+  },
+  "acceptance": {
+    "checks": {
+      "simulation_only": true,
+      "physical_boundary_not_claimed": true,
+      "no_teleport": true,
+      "movement_uses_observed_free_space": true,
+      "physical_destination_free": true,
+      "person_clearance": true,
+      "footprint_stays_inside": true,
+      "alerts_only_delivered_at_home": true,
+      "bounded_termination": true,
+      "depth_surface_acquired": true,
+      "mesh_indices_valid": true,
+      "finite_surface": true,
+      "mesh_memory_bounded": true,
+      "return_reached_home": true
+    },
+    "verdict": "pass",
+    "ticks": 4,
+    "mesh_revisions": 1,
+    "largest_mesh_triangles": 615,
+    "largest_observed_fire_cells": 0,
+    "observed_assessments": [
+      "assistance_needed",
+      "observing"
+    ]
+  }
+}

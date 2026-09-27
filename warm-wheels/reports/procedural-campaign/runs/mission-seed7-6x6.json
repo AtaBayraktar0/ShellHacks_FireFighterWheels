@@ -1,0 +1,3018 @@
+{
+  "schema_version": "2.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 7,
+  "layout_hash": "d391ed2f4525744a9fbda99a85d15669ac4939e56195d891a30ec8b4813165c9",
+  "mission": {
+    "mode": "procedural",
+    "generation_version": "procedural-v2",
+    "layout_family": "open_plan",
+    "observation_gated": true,
+    "environment_evolves": true,
+    "hidden_contents_disclosed": false
+  },
+  "simulation_only": true,
+  "scenario": {
+    "id": "randomized_mission",
+    "title": "Autonomous randomized mission",
+    "description": "Explore an unknown generated place, assess observed simulated actor responses, and choose a return or escort action as conditions change.",
+    "expected_outcome": "Discover what can be observed; report the actual outcome and any unresolved areas or people."
+  },
+  "boundary": {
+    "width_m": 6.0,
+    "height_m": 6.0,
+    "resolution_m": 0.2,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 1.2,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "metrics": {
+    "steps": 88,
+    "logical_ticks": 105,
+    "coverage_percent": 35.1,
+    "unobserved_cells": 298,
+    "coverage_basis": "Simulation diagnostic: observed initial reachable configuration cells; denominator stays fixed as fire grows",
+    "detections": 2,
+    "people_found": 1,
+    "hazards_found": 1,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 10.5,
+    "route_length_cells": 0,
+    "follower_holds": 2,
+    "following_checks": 49,
+    "escort_verified": true,
+    "assistance_alerts": 0,
+    "unresolved_observed_people": 0
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Returned with observations",
+    "summary": "Returned to launch: observed mobile actor; escort to launch with following checks",
+    "returned_home": true,
+    "all_clear": false,
+    "coverage_percent": 35.1,
+    "scenario_applicability": "procedural"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Autonomous search started",
+      "message": "Exploring observed free space. World contents remain unknown until sensed.",
+      "position": [
+        19,
+        28
+      ]
+    },
+    {
+      "id": 2,
+      "step": 30,
+      "sim_time_s": 3.1,
+      "type": "discovery",
+      "title": "Fire observed",
+      "message": "Measured synthetic fire perimeter added to the exclusion map; route planning uses observed occupancy.",
+      "position": [
+        25,
+        18
+      ]
+    },
+    {
+      "id": 3,
+      "step": 32,
+      "sim_time_s": 3.3,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        25,
+        18
+      ]
+    },
+    {
+      "id": 4,
+      "step": 33,
+      "sim_time_s": 3.4,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        25,
+        18
+      ]
+    },
+    {
+      "id": 5,
+      "step": 34,
+      "sim_time_s": 3.5,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        25,
+        18
+      ]
+    },
+    {
+      "id": 6,
+      "step": 52,
+      "sim_time_s": 5.3,
+      "type": "discovery",
+      "title": "Person observed \u2014 assessing response",
+      "message": "Collecting repeated visible actor responses; posture alone does not establish a medical state.",
+      "position": [
+        22,
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "step": 52,
+      "sim_time_s": 5.7,
+      "type": "decision",
+      "title": "Verified mobile response \u2014 escort started",
+      "message": "The simulated actor agreed to follow. Each move requires current distance and visibility verification.",
+      "position": [
+        22,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "step": 52,
+      "sim_time_s": 5.7,
+      "type": "follower",
+      "title": "Following unverified \u2014 rover holds",
+      "message": "Waiting for a current visible measurement, not trusting the last actor position.",
+      "position": [
+        28,
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "step": 52,
+      "sim_time_s": 5.9,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Current simulated measurement verifies visibility and following distance.",
+      "position": [
+        25,
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "step": 62,
+      "sim_time_s": 6.9,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        25,
+        15
+      ]
+    },
+    {
+      "id": 11,
+      "step": 63,
+      "sim_time_s": 7.0,
+      "type": "follower",
+      "title": "Following unverified \u2014 rover holds",
+      "message": "Waiting for a current visible measurement, not trusting the last actor position.",
+      "position": [
+        28,
+        12
+      ]
+    },
+    {
+      "id": 12,
+      "step": 63,
+      "sim_time_s": 7.3,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        26,
+        15
+      ]
+    },
+    {
+      "id": 13,
+      "step": 63,
+      "sim_time_s": 8.0,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Current simulated measurement verifies visibility and following distance.",
+      "position": [
+        28,
+        9
+      ]
+    },
+    {
+      "id": 14,
+      "step": 66,
+      "sim_time_s": 8.3,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        27,
+        16
+      ]
+    },
+    {
+      "id": 15,
+      "step": 67,
+      "sim_time_s": 8.4,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        27,
+        16
+      ]
+    },
+    {
+      "id": 16,
+      "step": 69,
+      "sim_time_s": 8.6,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        27,
+        18
+      ]
+    },
+    {
+      "id": 17,
+      "step": 71,
+      "sim_time_s": 8.8,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        27,
+        19
+      ]
+    },
+    {
+      "id": 18,
+      "step": 72,
+      "sim_time_s": 8.9,
+      "type": "hazard",
+      "title": "Observed fire perimeter expanded",
+      "message": "Newly measured exclusion cells may change the safe route.",
+      "position": [
+        27,
+        19
+      ]
+    },
+    {
+      "id": 19,
+      "step": 88,
+      "sim_time_s": 10.5,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Current simulated measurement verifies visibility and following distance.",
+      "position": [
+        22,
+        28
+      ]
+    },
+    {
+      "id": 20,
+      "step": 88,
+      "sim_time_s": 10.5,
+      "type": "outcome",
+      "title": "Returned with observations",
+      "message": "Returned to launch: observed mobile actor; escort to launch with following checks. No all-clear is implied.",
+      "position": [
+        19,
+        28
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "sim-person-1",
+      "kind": "person",
+      "position": [
+        22,
+        28
+      ],
+      "label": "Simulated person \u00b7 mobile",
+      "source": "simulated sensor observation",
+      "visible": true,
+      "last_seen_tick": 105,
+      "posture": "crouched",
+      "assessment": {
+        "state": "mobile",
+        "status": "mobile",
+        "samples": 5,
+        "required_samples": 5,
+        "evidence": "Repeated simulated willingness and movement response",
+        "source": "simulated actor observations"
+      },
+      "response": "mobile",
+      "disposition": "arrived"
+    },
+    {
+      "id": "sim-fire-1",
+      "kind": "hazard",
+      "position": [
+        27,
+        19
+      ],
+      "label": "Observed synthetic fire",
+      "source": "simulated sensor observation",
+      "intensity": 0.509,
+      "spread_cells": [
+        [
+          24,
+          18
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          25,
+          16
+        ],
+        [
+          25,
+          17
+        ],
+        [
+          25,
+          18
+        ],
+        [
+          25,
+          19
+        ],
+        [
+          26,
+          15
+        ],
+        [
+          26,
+          16
+        ],
+        [
+          26,
+          19
+        ],
+        [
+          27,
+          16
+        ],
+        [
+          27,
+          17
+        ],
+        [
+          27,
+          18
+        ],
+        [
+          27,
+          19
+        ]
+      ],
+      "radius_m": 0.407,
+      "visible": false,
+      "last_seen_tick": 92,
+      "spread_model": "observed exclusion footprint; bounded synthetic growth"
+    }
+  ],
+  "follower": {
+    "person_id": "sim-person-1",
+    "position": [
+      22,
+      28
+    ],
+    "visible": true,
+    "distance_m": 0.6,
+    "following_verified": true,
+    "at_launch_zone": true,
+    "state": "arrived",
+    "source": "last simulated sensor observation",
+    "trail": [
+      [
+        23,
+        1
+      ],
+      [
+        24,
+        1
+      ],
+      [
+        25,
+        1
+      ],
+      [
+        26,
+        1
+      ],
+      [
+        27,
+        1
+      ],
+      [
+        28,
+        1
+      ],
+      [
+        28,
+        2
+      ],
+      [
+        28,
+        3
+      ],
+      [
+        28,
+        4
+      ],
+      [
+        28,
+        5
+      ],
+      [
+        28,
+        6
+      ],
+      [
+        28,
+        7
+      ],
+      [
+        28,
+        8
+      ],
+      [
+        28,
+        8
+      ],
+      [
+        28,
+        9
+      ],
+      [
+        28,
+        10
+      ],
+      [
+        28,
+        11
+      ],
+      [
+        28,
+        12
+      ],
+      [
+        28,
+        13
+      ],
+      [
+        28,
+        14
+      ],
+      [
+        28,
+        15
+      ],
+      [
+        28,
+        16
+      ],
+      [
+        28,
+        17
+      ],
+      [
+        28,
+        18
+      ],
+      [
+        28,
+        19
+      ],
+      [
+        28,
+        20
+      ],
+      [
+        28,
+        21
+      ],
+      [
+        28,
+        22
+      ],
+      [
+        28,
+        23
+      ],
+      [
+        28,
+        24
+      ],
+      [
+        28,
+        25
+      ],
+      [
+        28,
+        26
+      ],
+      [
+        28,
+        27
+      ],
+      [
+        28,
+        28
+      ],
+      [
+        27,
+        28
+      ],
+      [
+        26,
+        28
+      ],
+      [
+        25,
+        28
+      ],
+      [
+        24,
+        28
+      ],
+      [
+        23,
+        28
+      ],
+      [
+        22,
+        28
+      ]
+    ]
+  },
+  "alerts": [],
+  "following_log": [
+    {
+      "step": 52,
+      "tick": 57,
+      "rover": [
+        28,
+        1
+      ],
+      "person": [
+        23,
+        1
+      ],
+      "last_observed_person": [
+        23,
+        1
+      ],
+      "distance_m": 1.0,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 52,
+      "tick": 58,
+      "rover": [
+        28,
+        1
+      ],
+      "person": [
+        24,
+        1
+      ],
+      "last_observed_person": [
+        24,
+        1
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 52,
+      "tick": 59,
+      "rover": [
+        28,
+        1
+      ],
+      "person": [
+        25,
+        1
+      ],
+      "last_observed_person": [
+        25,
+        1
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 53,
+      "tick": 60,
+      "rover": [
+        28,
+        2
+      ],
+      "person": [
+        26,
+        1
+      ],
+      "last_observed_person": [
+        26,
+        1
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 54,
+      "tick": 61,
+      "rover": [
+        28,
+        3
+      ],
+      "person": [
+        27,
+        1
+      ],
+      "last_observed_person": [
+        27,
+        1
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 55,
+      "tick": 62,
+      "rover": [
+        28,
+        4
+      ],
+      "person": [
+        28,
+        1
+      ],
+      "last_observed_person": [
+        28,
+        1
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 56,
+      "tick": 63,
+      "rover": [
+        28,
+        5
+      ],
+      "person": [
+        28,
+        2
+      ],
+      "last_observed_person": [
+        28,
+        2
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 57,
+      "tick": 64,
+      "rover": [
+        28,
+        6
+      ],
+      "person": [
+        28,
+        3
+      ],
+      "last_observed_person": [
+        28,
+        3
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 58,
+      "tick": 65,
+      "rover": [
+        28,
+        7
+      ],
+      "person": [
+        28,
+        4
+      ],
+      "last_observed_person": [
+        28,
+        4
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 59,
+      "tick": 66,
+      "rover": [
+        28,
+        8
+      ],
+      "person": [
+        28,
+        5
+      ],
+      "last_observed_person": [
+        28,
+        5
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 60,
+      "tick": 67,
+      "rover": [
+        28,
+        9
+      ],
+      "person": [
+        28,
+        6
+      ],
+      "last_observed_person": [
+        28,
+        6
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 61,
+      "tick": 68,
+      "rover": [
+        28,
+        10
+      ],
+      "person": [
+        28,
+        7
+      ],
+      "last_observed_person": [
+        28,
+        7
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 62,
+      "tick": 69,
+      "rover": [
+        28,
+        11
+      ],
+      "person": [
+        28,
+        8
+      ],
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 63,
+      "tick": 70,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 71,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 72,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 73,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 74,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 75,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 76,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 77,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 78,
+      "rover": [
+        28,
+        12
+      ],
+      "person": null,
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": null,
+      "visible": false,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 79,
+      "rover": [
+        28,
+        12
+      ],
+      "person": [
+        28,
+        8
+      ],
+      "last_observed_person": [
+        28,
+        8
+      ],
+      "distance_m": 0.8,
+      "visible": true,
+      "verified": false
+    },
+    {
+      "step": 63,
+      "tick": 80,
+      "rover": [
+        28,
+        12
+      ],
+      "person": [
+        28,
+        9
+      ],
+      "last_observed_person": [
+        28,
+        9
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 64,
+      "tick": 81,
+      "rover": [
+        28,
+        13
+      ],
+      "person": [
+        28,
+        10
+      ],
+      "last_observed_person": [
+        28,
+        10
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 65,
+      "tick": 82,
+      "rover": [
+        28,
+        14
+      ],
+      "person": [
+        28,
+        11
+      ],
+      "last_observed_person": [
+        28,
+        11
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 66,
+      "tick": 83,
+      "rover": [
+        28,
+        15
+      ],
+      "person": [
+        28,
+        12
+      ],
+      "last_observed_person": [
+        28,
+        12
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 67,
+      "tick": 84,
+      "rover": [
+        28,
+        16
+      ],
+      "person": [
+        28,
+        13
+      ],
+      "last_observed_person": [
+        28,
+        13
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 68,
+      "tick": 85,
+      "rover": [
+        28,
+        17
+      ],
+      "person": [
+        28,
+        14
+      ],
+      "last_observed_person": [
+        28,
+        14
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 69,
+      "tick": 86,
+      "rover": [
+        28,
+        18
+      ],
+      "person": [
+        28,
+        15
+      ],
+      "last_observed_person": [
+        28,
+        15
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 70,
+      "tick": 87,
+      "rover": [
+        28,
+        19
+      ],
+      "person": [
+        28,
+        16
+      ],
+      "last_observed_person": [
+        28,
+        16
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 71,
+      "tick": 88,
+      "rover": [
+        28,
+        20
+      ],
+      "person": [
+        28,
+        17
+      ],
+      "last_observed_person": [
+        28,
+        17
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 72,
+      "tick": 89,
+      "rover": [
+        28,
+        21
+      ],
+      "person": [
+        28,
+        18
+      ],
+      "last_observed_person": [
+        28,
+        18
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 73,
+      "tick": 90,
+      "rover": [
+        28,
+        22
+      ],
+      "person": [
+        28,
+        19
+      ],
+      "last_observed_person": [
+        28,
+        19
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 74,
+      "tick": 91,
+      "rover": [
+        28,
+        23
+      ],
+      "person": [
+        28,
+        20
+      ],
+      "last_observed_person": [
+        28,
+        20
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 75,
+      "tick": 92,
+      "rover": [
+        28,
+        24
+      ],
+      "person": [
+        28,
+        21
+      ],
+      "last_observed_person": [
+        28,
+        21
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 76,
+      "tick": 93,
+      "rover": [
+        28,
+        25
+      ],
+      "person": [
+        28,
+        22
+      ],
+      "last_observed_person": [
+        28,
+        22
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 77,
+      "tick": 94,
+      "rover": [
+        28,
+        26
+      ],
+      "person": [
+        28,
+        23
+      ],
+      "last_observed_person": [
+        28,
+        23
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 78,
+      "tick": 95,
+      "rover": [
+        28,
+        27
+      ],
+      "person": [
+        28,
+        24
+      ],
+      "last_observed_person": [
+        28,
+        24
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 79,
+      "tick": 96,
+      "rover": [
+        28,
+        28
+      ],
+      "person": [
+        28,
+        25
+      ],
+      "last_observed_person": [
+        28,
+        25
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 80,
+      "tick": 97,
+      "rover": [
+        27,
+        28
+      ],
+      "person": [
+        28,
+        26
+      ],
+      "last_observed_person": [
+        28,
+        26
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 81,
+      "tick": 98,
+      "rover": [
+        26,
+        28
+      ],
+      "person": [
+        28,
+        27
+      ],
+      "last_observed_person": [
+        28,
+        27
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 82,
+      "tick": 99,
+      "rover": [
+        25,
+        28
+      ],
+      "person": [
+        28,
+        28
+      ],
+      "last_observed_person": [
+        28,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 83,
+      "tick": 100,
+      "rover": [
+        24,
+        28
+      ],
+      "person": [
+        27,
+        28
+      ],
+      "last_observed_person": [
+        27,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 84,
+      "tick": 101,
+      "rover": [
+        23,
+        28
+      ],
+      "person": [
+        26,
+        28
+      ],
+      "last_observed_person": [
+        26,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 85,
+      "tick": 102,
+      "rover": [
+        22,
+        28
+      ],
+      "person": [
+        25,
+        28
+      ],
+      "last_observed_person": [
+        25,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 86,
+      "tick": 103,
+      "rover": [
+        21,
+        28
+      ],
+      "person": [
+        24,
+        28
+      ],
+      "last_observed_person": [
+        24,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 87,
+      "tick": 104,
+      "rover": [
+        20,
+        28
+      ],
+      "person": [
+        23,
+        28
+      ],
+      "last_observed_person": [
+        23,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 88,
+      "tick": 105,
+      "rover": [
+        19,
+        28
+      ],
+      "person": [
+        22,
+        28
+      ],
+      "last_observed_person": [
+        22,
+        28
+      ],
+      "distance_m": 0.6,
+      "visible": true,
+      "verified": true
+    }
+  ],
+  "trajectory": [
+    [
+      19,
+      28
+    ],
+    [
+      19,
+      27
+    ],
+    [
+      20,
+      27
+    ],
+    [
+      19,
+      27
+    ],
+    [
+      18,
+      27
+    ],
+    [
+      17,
+      27
+    ],
+    [
+      17,
+      28
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      15,
+      28
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      15,
+      28
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      17,
+      28
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      19,
+      28
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      23,
+      28
+    ],
+    [
+      24,
+      28
+    ],
+    [
+      25,
+      28
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      27,
+      28
+    ],
+    [
+      28,
+      28
+    ],
+    [
+      28,
+      27
+    ],
+    [
+      28,
+      26
+    ],
+    [
+      28,
+      25
+    ],
+    [
+      28,
+      24
+    ],
+    [
+      28,
+      23
+    ],
+    [
+      28,
+      22
+    ],
+    [
+      28,
+      21
+    ],
+    [
+      28,
+      20
+    ],
+    [
+      28,
+      19
+    ],
+    [
+      28,
+      18
+    ],
+    [
+      28,
+      17
+    ],
+    [
+      28,
+      16
+    ],
+    [
+      28,
+      15
+    ],
+    [
+      28,
+      14
+    ],
+    [
+      28,
+      13
+    ],
+    [
+      28,
+      12
+    ],
+    [
+      28,
+      11
+    ],
+    [
+      28,
+      10
+    ],
+    [
+      28,
+      9
+    ],
+    [
+      28,
+      8
+    ],
+    [
+      28,
+      7
+    ],
+    [
+      28,
+      6
+    ],
+    [
+      28,
+      5
+    ],
+    [
+      28,
+      4
+    ],
+    [
+      28,
+      3
+    ],
+    [
+      28,
+      2
+    ],
+    [
+      28,
+      1
+    ],
+    [
+      28,
+      2
+    ],
+    [
+      28,
+      3
+    ],
+    [
+      28,
+      4
+    ],
+    [
+      28,
+      5
+    ],
+    [
+      28,
+      6
+    ],
+    [
+      28,
+      7
+    ],
+    [
+      28,
+      8
+    ],
+    [
+      28,
+      9
+    ],
+    [
+      28,
+      10
+    ],
+    [
+      28,
+      11
+    ],
+    [
+      28,
+      12
+    ],
+    [
+      28,
+      13
+    ],
+    [
+      28,
+      14
+    ],
+    [
+      28,
+      15
+    ],
+    [
+      28,
+      16
+    ],
+    [
+      28,
+      17
+    ],
+    [
+      28,
+      18
+    ],
+    [
+      28,
+      19
+    ],
+    [
+      28,
+      20
+    ],
+    [
+      28,
+      21
+    ],
+    [
+      28,
+      22
+    ],
+    [
+      28,
+      23
+    ],
+    [
+      28,
+      24
+    ],
+    [
+      28,
+      25
+    ],
+    [
+      28,
+      26
+    ],
+    [
+      28,
+      27
+    ],
+    [
+      28,
+      28
+    ],
+    [
+      27,
+      28
+    ],
+    [
+      26,
+      28
+    ],
+    [
+      25,
+      28
+    ],
+    [
+      24,
+      28
+    ],
+    [
+      23,
+      28
+    ],
+    [
+      22,
+      28
+    ],
+    [
+      21,
+      28
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      19,
+      28
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 30,
+    "height": 30,
+    "resolution_m": 0.2,
+    "origin_col": 19,
+    "origin_row": 28,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      -1,
+      -1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Observed configuration space; unobserved cells stay unknown. Synthetic sensor only."
+  },
+  "assumptions": [
+    "Laptop simulation only; no physical camera, Arduino, or motors are controlled.",
+    "Geometry, people, actor responses, fire origins and faults are seeded synthetic world state.",
+    "The navigation fixture uses a separate ideal occupancy observation; the 3D camera mesh is forward-facing and retains only acquired surfaces.",
+    "Person responses require five visible samples; no age, consciousness or medical diagnosis is inferred.",
+    "Fire spreads by bounded cardinal grid growth on physical free cells. This is a synthetic hazard model, not fire physics.",
+    "The 3D scan is accumulated simulated raycast depth, not a physical D435i reconstruction.",
+    "Coverage is an initial-fixture diagnostic. Return does not imply all-clear, successful rescue or a complete scan."
+  ],
+  "hardware_test_performed": false,
+  "simulation_diagnostics": {
+    "label": "HIDDEN GROUND TRUTH \u2014 POST-RUN SOFTWARE DIAGNOSTIC ONLY",
+    "people_total": 2,
+    "fire_origins_total": 1,
+    "people_unobserved": 1,
+    "people": [
+      {
+        "id": "sim-person-1",
+        "response_fixture": "mobile",
+        "initial_position": [
+          22,
+          1
+        ],
+        "actual_trail": [
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            24,
+            1
+          ],
+          [
+            25,
+            1
+          ],
+          [
+            26,
+            1
+          ],
+          [
+            27,
+            1
+          ],
+          [
+            28,
+            1
+          ],
+          [
+            28,
+            2
+          ],
+          [
+            28,
+            3
+          ],
+          [
+            28,
+            4
+          ],
+          [
+            28,
+            5
+          ],
+          [
+            28,
+            6
+          ],
+          [
+            28,
+            7
+          ],
+          [
+            28,
+            8
+          ],
+          [
+            28,
+            9
+          ],
+          [
+            28,
+            10
+          ],
+          [
+            28,
+            11
+          ],
+          [
+            28,
+            12
+          ],
+          [
+            28,
+            13
+          ],
+          [
+            28,
+            14
+          ],
+          [
+            28,
+            15
+          ],
+          [
+            28,
+            16
+          ],
+          [
+            28,
+            17
+          ],
+          [
+            28,
+            18
+          ],
+          [
+            28,
+            19
+          ],
+          [
+            28,
+            20
+          ],
+          [
+            28,
+            21
+          ],
+          [
+            28,
+            22
+          ],
+          [
+            28,
+            23
+          ],
+          [
+            28,
+            24
+          ],
+          [
+            28,
+            25
+          ],
+          [
+            28,
+            26
+          ],
+          [
+            28,
+            27
+          ],
+          [
+            28,
+            28
+          ],
+          [
+            27,
+            28
+          ],
+          [
+            26,
+            28
+          ],
+          [
+            25,
+            28
+          ],
+          [
+            24,
+            28
+          ],
+          [
+            23,
+            28
+          ],
+          [
+            22,
+            28
+          ]
+        ],
+        "arrived": true
+      },
+      {
+        "id": "sim-person-2",
+        "response_fixture": "assistance_needed",
+        "initial_position": [
+          8,
+          28
+        ],
+        "actual_trail": [
+          [
+            8,
+            28
+          ]
+        ],
+        "arrived": false
+      }
+    ],
+    "fires": [
+      {
+        "id": "sim-fire-1",
+        "origin": [
+          24,
+          17
+        ],
+        "physical_cells": [
+          [
+            24,
+            16
+          ],
+          [
+            24,
+            17
+          ],
+          [
+            25,
+            16
+          ],
+          [
+            25,
+            17
+          ],
+          [
+            26,
+            17
+          ],
+          [
+            26,
+            18
+          ],
+          [
+            26,
+            19
+          ]
+        ],
+        "active": true,
+        "intensity": 0.568
+      }
+    ]
+  },
+  "acceptance": {
+    "checks": {
+      "simulation_only": true,
+      "physical_boundary_not_claimed": true,
+      "no_teleport": true,
+      "movement_uses_observed_free_space": true,
+      "physical_destination_free": true,
+      "person_clearance": true,
+      "footprint_stays_inside": true,
+      "alerts_only_delivered_at_home": true,
+      "bounded_termination": true,
+      "depth_surface_acquired": true,
+      "mesh_indices_valid": true,
+      "finite_surface": true,
+      "mesh_memory_bounded": true,
+      "return_reached_home": true,
+      "escort_arrival_verified": true
+    },
+    "verdict": "pass",
+    "ticks": 105,
+    "mesh_revisions": 45,
+    "largest_mesh_triangles": 4000,
+    "largest_observed_fire_cells": 13,
+    "observed_assessments": [
+      "mobile",
+      "observing"
+    ]
+  }
+}

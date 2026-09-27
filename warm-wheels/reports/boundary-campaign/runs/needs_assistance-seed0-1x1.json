@@ -1,0 +1,277 @@
+{
+  "schema_version": "1.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 0,
+  "layout_hash": "63f718e049e26c42d43e43ca5484d16f3f99320d6034f489ae23057cdd4d7775",
+  "simulation_only": true,
+  "scenario": {
+    "id": "needs_assistance",
+    "title": "Return with an assistance alert",
+    "description": "A scripted actor signals that assistance is needed. The rover returns with the observed location.",
+    "expected_outcome": "Returns to launch and delivers an assistance alert; no medical condition is inferred."
+  },
+  "metrics": {
+    "steps": 0,
+    "coverage_percent": 100.0,
+    "unobserved_cells": 0,
+    "detections": 1,
+    "people_found": 1,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 0.1,
+    "route_length_cells": 0,
+    "coverage_basis": "Simulation diagnostic: observed reachable cells of the hidden clearance fixture",
+    "follower_holds": 0,
+    "following_checks": 0,
+    "follower_reacquisitions": 0,
+    "escort_verified": false,
+    "assistance_alerts": 1
+  },
+  "boundary": {
+    "width_m": 1.0,
+    "height_m": 1.0,
+    "resolution_m": 0.1,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 0.6,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Returned with an assistance alert",
+    "summary": "Returned to launch: scripted actor requests assistance; returning with observed location",
+    "returned_home": true,
+    "coverage_percent": 100.0,
+    "scenario_applicability": "demonstrated"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Search started",
+      "message": "Frontier exploration is choosing the route from observed free space.",
+      "position": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 2,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "discovery",
+      "title": "Person marker observed",
+      "message": "Person marker \u00b7 assistance unassessed. Scripted synthetic entity; not a detector result.",
+      "position": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": 3,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "decision",
+      "title": "Assistance response received \u2014 returning to report",
+      "message": "The scenario supplies an assistance-needed actor response. This is not an age, mobility, or medical diagnosis.",
+      "position": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": 4,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "alert",
+      "title": "Assistance alert delivered at launch",
+      "message": "Observed actor location is ready to report to the outside team. No medical state was inferred.",
+      "position": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "outcome",
+      "title": "Returned to launch",
+      "message": "Returned to launch: scripted actor requests assistance; returning with observed location",
+      "position": [
+        2,
+        7
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "synthetic-person-1",
+      "kind": "person",
+      "position": [
+        4,
+        5
+      ],
+      "label": "Person marker \u00b7 assistance unassessed",
+      "source": "scripted synthetic entity",
+      "first_seen_step": 0
+    }
+  ],
+  "follower": null,
+  "following_log": [],
+  "alerts": [
+    {
+      "kind": "assistance_needed",
+      "position": [
+        4,
+        5
+      ],
+      "delivered_at_home": true,
+      "step": 0,
+      "source": "scripted actor response in simulation"
+    }
+  ],
+  "trajectory": [
+    [
+      2,
+      7
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 10,
+    "height": 10,
+    "resolution_m": 0.1,
+    "origin_col": 2,
+    "origin_row": 7,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Simulation only: 360-degree sensor; walls include one-cell clearance buffer"
+  },
+  "assumptions": [
+    "Laptop simulation only; no Arduino, motors, or physical camera are controlled.",
+    "Robot routes are calculated by frontier exploration on observed free cells.",
+    "Sensing is an ideal 360-degree grid model, not the D435i camera.",
+    "Person/hazard markers and fault events are scripted synthetic fixtures, not model predictions.",
+    "The scenario author checks hidden-fixture connectivity when placing scripted obstacles; robot route planning still uses observations only.",
+    "Coverage is a hidden-fixture diagnostic, not proof that a real building was fully scanned.",
+    "No age, consciousness, mobility, or medical condition is inferred."
+  ],
+  "hardware_test_performed": false,
+  "acceptance": {
+    "verdict": "pass",
+    "checks": {
+      "terminated": true,
+      "explicit_simulation": true,
+      "no_hardware_test_claim": true,
+      "footprint_within_boundary": true,
+      "consecutive_cell_motion": true,
+      "expected_terminal_state": true,
+      "person_observed": true,
+      "alert_delivered_after_return": true
+    }
+  }
+}

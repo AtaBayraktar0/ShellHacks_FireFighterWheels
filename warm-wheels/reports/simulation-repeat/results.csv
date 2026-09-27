@@ -1,0 +1,9 @@
+scenario_id,passed,phase,steps,coverage_percent,checks_passed,checks_total,failure_details,trajectory_sha256
+empty_search_return,True,complete,202,100.0,7,7,,9a0f8695982f820647d9c6830e80df5f30906a7ad6fba5ba465c1126d8bd14b6
+operator_early_return,True,complete,24,21.1,7,7,,a8e844dda0095a8eaafaedb1338003bbd28edf3cedb8e0946ca4d619a36e8fc0
+blocked_launch,True,blocked,12,0.0,5,5,,3e0f0bb4c414cc3c8ba68de0424908e8b779dd65f912693071d934c6413009a9
+exploration_step_budget,True,complete,20,20.1,6,6,,38c27ad0db7c561ccbddadc0a1dd6485ef317a34352feb78e1fabd6c709694f2
+depth_data_holes,True,,,,9,9,,
+dropped_data,True,,,,3,3,,
+changed_obstacle_replan,True,complete,28,23.8,6,6,,a4d59852a50819bbcf6ccd9a37f48b438bd8ca887bbe8bd9bf82ed2b42ba1b0e
+cluttered_static_fixture,True,complete,228,100.0,5,5,,87590c245097753925b2fcfe5f28ef90041e47d44d9165390ddc57e7b4c9d787

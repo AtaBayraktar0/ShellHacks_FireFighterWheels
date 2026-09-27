@@ -1,0 +1,560 @@
+{
+  "schema_version": "1.0",
+  "export_type": "warm-wheels-presentation-report",
+  "seed": 0,
+  "layout_hash": "63f718e049e26c42d43e43ca5484d16f3f99320d6034f489ae23057cdd4d7775",
+  "simulation_only": true,
+  "scenario": {
+    "id": "escort_following",
+    "title": "Escort and verify following",
+    "description": "A scripted mobile actor follows the rover. A temporary follower pause makes the rover wait and reacquire.",
+    "expected_outcome": "Returns with the actor verified in the launch zone, logging every following check."
+  },
+  "metrics": {
+    "steps": 0,
+    "coverage_percent": 91.7,
+    "unobserved_cells": 3,
+    "detections": 1,
+    "people_found": 1,
+    "hazards_found": 0,
+    "replans": 0,
+    "sensor_holds": 0,
+    "elapsed_sim_s": 0.5,
+    "route_length_cells": 0,
+    "coverage_basis": "Simulation diagnostic: observed reachable cells of the hidden clearance fixture",
+    "follower_holds": 0,
+    "following_checks": 14,
+    "follower_reacquisitions": 4,
+    "escort_verified": true,
+    "assistance_alerts": 0
+  },
+  "boundary": {
+    "width_m": 1.0,
+    "height_m": 1.0,
+    "resolution_m": 0.1,
+    "robot_radius_m": 0.2,
+    "sensor_range_m": 0.6,
+    "enforced": true,
+    "hardware_supported": false
+  },
+  "outcome": {
+    "status": "returned",
+    "title": "Escort complete \u2014 follower verified at launch",
+    "summary": "Returned to launch: scripted mobile actor following; escort to launch",
+    "returned_home": true,
+    "coverage_percent": 91.7,
+    "scenario_applicability": "demonstrated"
+  },
+  "events": [
+    {
+      "id": 1,
+      "step": 0,
+      "sim_time_s": 0.0,
+      "type": "mission",
+      "title": "Search started",
+      "message": "Frontier exploration is choosing the route from observed free space.",
+      "position": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 2,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "discovery",
+      "title": "Person marker observed",
+      "message": "Person marker \u00b7 assistance unassessed. Scripted synthetic entity; not a detector result.",
+      "position": [
+        6,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "step": 0,
+      "sim_time_s": 0.1,
+      "type": "decision",
+      "title": "Mobile actor response received \u2014 escort initiated",
+      "message": "The scenario supplies a willing mobile actor. Following distance and visibility must remain verified.",
+      "position": [
+        6,
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "step": 0,
+      "sim_time_s": 0.2,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        6,
+        4
+      ]
+    },
+    {
+      "id": 5,
+      "step": 0,
+      "sim_time_s": 0.3,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        6,
+        5
+      ]
+    },
+    {
+      "id": 6,
+      "step": 0,
+      "sim_time_s": 0.4,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        6,
+        6
+      ]
+    },
+    {
+      "id": 7,
+      "step": 0,
+      "sim_time_s": 0.5,
+      "type": "follower",
+      "title": "Following reacquired",
+      "message": "Visibility and distance are verified; escort may continue.",
+      "position": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": 8,
+      "step": 0,
+      "sim_time_s": 0.5,
+      "type": "follower",
+      "title": "Follower verified in the launch zone",
+      "message": "The actor arrived by consecutive grid moves and is visible within the launch-zone distance.",
+      "position": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": 9,
+      "step": 0,
+      "sim_time_s": 0.5,
+      "type": "outcome",
+      "title": "Returned to launch",
+      "message": "Returned to launch: scripted mobile actor following; escort to launch",
+      "position": [
+        2,
+        7
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "synthetic-person-1",
+      "kind": "person",
+      "position": [
+        6,
+        7
+      ],
+      "label": "Person marker \u00b7 assistance unassessed",
+      "source": "scripted synthetic entity",
+      "first_seen_step": 0
+    }
+  ],
+  "follower": {
+    "position": [
+      6,
+      7
+    ],
+    "visible": true,
+    "distance_m": 0.4,
+    "following_verified": true,
+    "at_launch_zone": true,
+    "state": "arrived",
+    "source": "scripted synthetic actor",
+    "trail": [
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        7
+      ]
+    ]
+  },
+  "following_log": [
+    {
+      "step": 0,
+      "sim_time_s": 0.1,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        3
+      ],
+      "distance_m": 0.566,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.1,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        3
+      ],
+      "distance_m": 0.566,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.2,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        4
+      ],
+      "distance_m": 0.5,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.2,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        4
+      ],
+      "distance_m": 0.5,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.2,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        4
+      ],
+      "distance_m": 0.5,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.3,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        5
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.3,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        5
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.3,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        5
+      ],
+      "distance_m": 0.447,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.4,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        6
+      ],
+      "distance_m": 0.412,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.4,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        6
+      ],
+      "distance_m": 0.412,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.4,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        6
+      ],
+      "distance_m": 0.412,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.5,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        7
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.5,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        7
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    },
+    {
+      "step": 0,
+      "sim_time_s": 0.5,
+      "rover": [
+        2,
+        7
+      ],
+      "person": [
+        6,
+        7
+      ],
+      "distance_m": 0.4,
+      "visible": true,
+      "verified": true
+    }
+  ],
+  "alerts": [],
+  "trajectory": [
+    [
+      2,
+      7
+    ]
+  ],
+  "final_observed_grid": {
+    "width": 10,
+    "height": 10,
+    "resolution_m": 0.1,
+    "origin_col": 2,
+    "origin_row": 7,
+    "cells": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "frame": "synthetic-presentation",
+    "note": "Simulation only: 360-degree sensor; walls include one-cell clearance buffer"
+  },
+  "assumptions": [
+    "Laptop simulation only; no Arduino, motors, or physical camera are controlled.",
+    "Robot routes are calculated by frontier exploration on observed free cells.",
+    "Sensing is an ideal 360-degree grid model, not the D435i camera.",
+    "Person/hazard markers and fault events are scripted synthetic fixtures, not model predictions.",
+    "The scenario author checks hidden-fixture connectivity when placing scripted obstacles; robot route planning still uses observations only.",
+    "Coverage is a hidden-fixture diagnostic, not proof that a real building was fully scanned.",
+    "No age, consciousness, mobility, or medical condition is inferred."
+  ],
+  "hardware_test_performed": false,
+  "acceptance": {
+    "verdict": "pass",
+    "checks": {
+      "terminated": true,
+      "explicit_simulation": true,
+      "no_hardware_test_claim": true,
+      "footprint_within_boundary": true,
+      "consecutive_cell_motion": true,
+      "expected_terminal_state": true,
+      "person_observed": true,
+      "follower_arrived": true,
+      "following_measured": true,
+      "actor_never_teleports": true
+    }
+  }
+}
