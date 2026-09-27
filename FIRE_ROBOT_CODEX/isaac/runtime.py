@@ -11,7 +11,7 @@ from .scene import create_scene, CHASSIS, JOINTS, WHEEL_RADIUS, TRACK, BODY_RADI
 
 
 class Runtime:
-    def __init__(self, app, cfg, layout, max_seconds):
+    def __init__(self, app, cfg, layout, max_seconds, seed=0):
         import omni.usd
         import omni.physx
         import isaacsim.core.experimental.utils.app as app_utils
@@ -30,7 +30,7 @@ class Runtime:
             raise ValueError(f'robot_radius_m must be >= {BODY_RADIUS} for this model')
         stage_utils.create_new_stage()
         self.stage=omni.usd.get_context().get_stage()
-        self.boxes,self.flame=create_scene(self.stage,cfg,layout)
+        self.boxes,self.flame=create_scene(self.stage,cfg,layout,seed)
         self.robot=Articulation(CHASSIS)
         SimulationManager.setup_simulation(dt=1./120.,device='cpu')
         scene=SimulationManager.get_physics_scenes()[0]

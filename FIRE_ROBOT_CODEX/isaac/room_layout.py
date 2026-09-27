@@ -21,7 +21,15 @@ def configure(cfg):
     cfg.x_min = cfg.y_min = .1-START[0]
     cfg.x_max = cfg.y_max = 2.9-START[0]
     cfg.goal_xy = (2.425-START[0], 2.425-START[1])
-    cfg.robot_radius_m = .20
+    # The procedural chassis has a 0.145 m enclosing radius.  The previous
+    # 0.20 m value, combined with depth-shadow inflation, mathematically
+    # sealed the room's narrow left corridor even though the car fits.
+    cfg.robot_radius_m = .145
+    cfg.clearance_m = .005
+    # Every obstacle in this procedural room is a closed solid and is sampled
+    # from changing viewpoints. Adding an assumed unseen depth a second time
+    # closes real passages between the boxes and walls.
+    cfg.assumed_depth_m = 0.
     cfg.edge_is_wall = True
 
 

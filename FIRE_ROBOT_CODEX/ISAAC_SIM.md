@@ -102,3 +102,26 @@ GitHub Actions runs these CPU tests. They cover existing planning/perception/ser
 - [6.1 articulation API](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/py/source/extensions/isaacsim.core.experimental.prims/docs/index.html)
 - [6.1 RTX camera API](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/py/source/extensions/isaacsim.sensors.experimental.rtx/docs/index.html)
 - [6.1 workstation installation](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/installation/install_workstation.html)
+# Randomized map testing
+
+Run a quick batch with ideal scene raycasts:
+
+```powershell
+& "C:\Users\RDFLab\Documents\Codex\isaacsim\python.bat" test_random_maps.py --runs 10
+```
+
+Use the rendered RGB-D camera for a slower sensor test:
+
+```powershell
+& "C:\Users\RDFLab\Documents\Codex\isaacsim\python.bat" test_random_maps.py --runs 10 --sensor rgbd
+```
+
+Every arena is tied to an integer seed. Replay one failed seed in the GUI with:
+
+```powershell
+& "C:\Users\RDFLab\Documents\Codex\isaacsim\python.bat" run_isaac.py --layout random --seed 42 --hold
+```
+
+The generator reserves the home and goal areas and rejects maps that do not
+contain a car-sized path. Results are written under `outputs/random_maps`, with
+one directory per seed and an aggregate `summary.json`.

@@ -7,6 +7,7 @@ runner is unchanged. New adapters and scene are isolated under isaac/.
 import argparse
 import json
 import math
+import os
 from pathlib import Path
 import sys
 import traceback
@@ -19,7 +20,8 @@ def parser():
     p=argparse.ArgumentParser(description='CODEX fire robot — Isaac Sim 6.1')
     p.add_argument('--headless',action='store_true')
     p.add_argument('--sensor',choices=['rgbd','raycast'],default='rgbd')
-    p.add_argument('--layout',choices=['demo','flame','room'],default='demo')
+    p.add_argument('--layout',choices=['demo','flame','room','random'],default='demo')
+    p.add_argument('--seed',type=int,default=0,help='random-map seed (replays the same arena)')
     p.add_argument('--config',type=Path)
     p.add_argument('--goal',type=float,nargs=2,metavar=('X','Y'))
     p.add_argument('--speed',type=float,default=.15,help='timed-drive speed in m/s')
@@ -45,10 +47,19 @@ def main():
         from isaacsim import SimulationApp
     except ImportError as exc:
         raise SystemExit('Run this script using Isaac Sim 6.1 python.sh (Linux) or python.bat (Windows).') from exc
-    app=SimulationApp({'headless':args.headless,'width':1280,'height':800})
+    install=Path(os.environ['EXP_PATH']).resolve().parent
+    extra_args=[
+        '--ext-folder', str(install/'extscache'),
+        '--ext-folder', str(install/'extsDeprecated'),
+        '--ext-folder', str(install/'extsInternal'),
+    ]
+    app=SimulationApp({'headless':args.headless,'width':1280,'height':800,
+                       'extra_args':extra_args},
+                      experience=str(ROOT/'isaac'/'fire_robot.kit'))
     rt=base=camera=mission=None
     result=dict(created_by='OpenAI Codex',target_isaac_version='6.1',
-                sensor=args.sensor,layout=args.layout,mode='smoke' if args.smoke_test else 'mission',
+                sensor=args.sensor,layout=args.layout,seed=args.seed,
+                mode='smoke' if args.smoke_test else 'mission',
                 passed=False,mission_completed=False,error=None)
     code=1
     try:
@@ -68,6 +79,9 @@ def main():
         if args.layout == 'room':
             from isaac.room_layout import configure
             configure(cfg)
+        elif args.layout == 'random':
+            from isaac.random_layout import configure
+            configure(cfg)
         if not cfg.use_imu:
             raise ValueError('Isaac runner requires use_imu=True; ideal physics yaw supplies the simulated gyro')
         if not cfg.edge_is_wall:
@@ -76,7 +90,7 @@ def main():
         if args.goal:
             cfg.goal_xy=tuple(args.goal)
         result['config']=__import__('dataclasses').asdict(cfg)
-        rt=Runtime(app,cfg,args.layout,args.max_seconds)
+        rt=Runtime(app,cfg,args.layout,args.max_seconds,args.seed)
         rt.stage.GetRootLayer().customLayerData={'creator':'OpenAI Codex','target':'Isaac Sim 6.1'}
         base=IsaacBase(rt,cfg)
         camera=RgbdCamera(rt,cfg) if args.sensor=='rgbd' else RaycastCamera(rt,cfg)
@@ -155,9 +169,12 @@ def main():
                 np.save(args.output/'camera_depth.npy',camera.last_depth)
             (args.output/'result.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n',encoding='utf-8')
             print(json.dumps(result,indent=2),flush=True)
-            if args.hold and result['passed']:
-                # Pause physics while leaving the scene available for inspection.
-                rt.app_utils.pause()
+            if args.hold:
+                # Leave the scene open for inspection after success or failure.
+                # This also prevents a navigation exception from making the
+                # Isaac window appear to crash or disappear.
+                if rt is not None:
+                    rt.app_utils.pause()
                 while app.is_running():
                     app.update()
         finally:

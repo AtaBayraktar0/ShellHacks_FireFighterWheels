@@ -28,10 +28,17 @@ class RgbdCamera:
         camera.CreateClippingRangeAttr(Gf.Vec2f(.01,10.))
         self.transform = camera.AddTransformOp()
         self.pan(0.)
-        self.author = RtxCamera(self.path,tick_rate=0.,reset_xform_op_properties=False)
+        self.author = RtxCamera(self.path,tick_rate=30.,reset_xform_op_properties=False)
         # 6.1 takes (height,width), unlike the old Camera API's (width,height).
         self.sensor = CameraSensor(self.author,resolution=(self.height,self.width),
                                    annotators=['rgb','distance_to_image_plane'])
+        # CameraSensor may rebuild the camera prim while it attaches RTX
+        # annotators. Reacquire the prim and author a fresh transform op so
+        # later pan calls never use a schema object for the replaced prim.
+        xform = UsdGeom.Xformable(runtime.stage.GetPrimAtPath(self.path))
+        xform.ClearXformOpOrder()
+        self.transform = xform.AddTransformOp(opSuffix='pan')
+        self.pan(0.)
         self.last_rgb = None
         self.last_depth = None
 

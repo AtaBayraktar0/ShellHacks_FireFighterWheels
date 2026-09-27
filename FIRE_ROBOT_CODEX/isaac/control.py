@@ -27,13 +27,25 @@ class IsaacBase:
     def turn(self, angle):
         initial = previous = self.heading()
         turned = 0.
-        deadline = self.rt.time() + 4. + abs(angle)/.25
+        integral = 0.
+        previous_time = self.rt.time()
+        deadline = self.rt.time() + 8. + abs(angle)/.15
         try:
             while abs(angle-turned) > math.radians(1.):
                 if self.rt.time() > deadline:
                     raise MissionFailed('Isaac turn timed out: check wheel joints/friction/gyro')
                 error = angle-turned
-                omega = math.copysign(min(.9,max(.12,2.*abs(error))),error)
+                now = self.rt.time()
+                dt = max(0., now-previous_time)
+                previous_time = now
+                integral = max(-.8, min(.8, integral+error*dt))
+                demand = 2.*error + 1.5*integral
+                omega = max(-1.5, min(1.5, demand))
+                if omega*error <= 0:
+                    integral = 0.
+                    omega = math.copysign(.4,error)
+                elif abs(omega) < .4:
+                    omega = math.copysign(.4,error)
                 self.rt.command(0.,omega)
                 self.rt.step()
                 current = self.heading()

@@ -40,7 +40,7 @@ def bind(prim, mat):
     UsdShade.MaterialBindingAPI.Apply(prim).Bind(mat, UsdShade.Tokens.weakerThanDescendants, 'physics')
 
 
-def create_scene(stage, cfg, layout):
+def create_scene(stage, cfg, layout, seed=0):
     UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.z)
     UsdGeom.SetStageMetersPerUnit(stage, 1.)
     UsdGeom.Xform.Define(stage, '/World')
@@ -77,6 +77,19 @@ def create_scene(stage, cfg, layout):
             boxes.append(bounds)
             if name == 'Flame':
                 flame = ((x0+x1)/2,(y0+y1)/2)
+    elif layout == 'random':
+        stage.RemovePrim('/World/FlameProp')
+        from .random_layout import shapes
+        boxes = []
+        for name, bounds, height, color in shapes(seed):
+            x0,y0,x1,y1 = bounds
+            cube(stage, '/World/Random_'+name,
+                 ((x0+x1)/2,(y0+y1)/2,height/2),
+                 (x1-x0,y1-y0,height), color)
+            if name == 'Flame':
+                flame = ((x0+x1)/2,(y0+y1)/2)
+            elif name not in ('South','North','West','East'):
+                boxes.append(bounds)
     for name, xy, color in [('Home',(0.,0.),(.1,.6,.9)), ('Goal',cfg.goal_xy,(.1,.8,.2))]:
         cube(stage, '/World/'+name, (*xy,.001), (.09,.09,.002), color, collision=False)
     UsdGeom.Xform.Define(stage, ROBOT)
