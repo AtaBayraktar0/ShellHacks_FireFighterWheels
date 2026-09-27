@@ -1,0 +1,20 @@
+{
+  "width_cells": 60,
+  "height_cells": 60,
+  "cell_m": 0.05,
+  "start_cell": [10, 10],
+  "goal_cell": [48, 48],
+  "robot_radius_m": 0.20,
+  "map_max_age_s": 2.0,
+  "camera_height_m": 0.22,
+  "camera_pitch_deg": 25.0,
+  "camera_forward_m": 0.0,
+  "floor_tolerance_m": 0.025,
+  "min_depth_m": 0.20,
+  "max_depth_m": 2.5,
+  "pose_max_age_s": 0.25,
+  "pwm": 70,
+  "pulse_ms": 100,
+  "max_pulse_travel_m": 0.02,
+  "calibrated": false
+}
