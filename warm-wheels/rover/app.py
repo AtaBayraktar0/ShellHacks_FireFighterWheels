@@ -231,21 +231,50 @@ def create_app(runtime=None, token=None, manage_runtime=True):
     return app
 
 
-def main():
+ENABLE_MOTORS_ENV = "WARM_WHEELS_ENABLE_MOTORS"
+SERIAL_PORT_ENV = "WARM_WHEELS_SERIAL_PORT"
+
+
+def parse_args(argv=None, environ=None):
+    environ = os.environ if environ is None else environ
+    env_enable = environ.get(ENABLE_MOTORS_ENV, "").strip().lower()
     parser = argparse.ArgumentParser(description="W.A.R.M wheels: controlled indoor robot prototype")
+    if env_enable not in ("", "0", "false", "no", "off", "1", "true", "yes", "on"):
+        parser.error(f"{ENABLE_MOTORS_ENV} must be 1/true/yes/on or 0/false/no/off")
     parser.add_argument("--mode", choices=("demo", "hardware"), default="demo")
-    parser.add_argument("--port", default="/dev/ttyACM0", help="Arduino USB serial port")
-    parser.add_argument("--enable-motors", action="store_true", help="Allow hardware motor output after bench calibration")
+    parser.add_argument("--port", default=environ.get(SERIAL_PORT_ENV) or "/dev/ttyACM0",
+                        help=f"Arduino USB serial port (default: ${SERIAL_PORT_ENV} or /dev/ttyACM0)")
+    parser.add_argument("--enable-motors", action="store_true", default=env_enable in ("1", "true", "yes", "on"),
+                        help=f"Opt in to physical motor output in hardware mode after bench calibration "
+                             f"(or set {ENABLE_MOTORS_ENV}=1). Arming in the dashboard is still required.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--http-port", type=int, default=8000)
     parser.add_argument("--camera-height", type=float, default=.22, help="Measured level camera height in metres")
     parser.add_argument("--robot-half-width", type=float, default=.20, help="Measured half-width incl. payload in metres")
     parser.add_argument("--obstacle-height", type=float, default=.45, help="Measured rover/payload height in metres")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.enable_motors and args.mode != "hardware":
+        parser.error(f"--enable-motors / {ENABLE_MOTORS_ENV} only applies with --mode hardware")
+    return args
+
+
+def motor_banner(args):
+    if args.mode == "demo":
+        return "Motors: simulated (demo mode never opens a serial port)."
+    if not args.enable_motors:
+        return ("Motors: OFF (camera-only). Physical motion needs --enable-motors --port <Uno serial port> "
+                f"or {ENABLE_MOTORS_ENV}=1 {SERIAL_PORT_ENV}=<port>.")
+    return (f"Motors: ENABLED on {args.port}. Verified firmware, dashboard Arm and a fresh clear depth view "
+            "are still required; hold a drive control to move. Emergency stop stays active.")
+
+
+def main(argv=None):
+    args = parse_args(argv)
     token = os.environ.get("ROVER_TOKEN") or secrets.token_urlsafe(24)
     if "ROVER_TOKEN" not in os.environ:
         print(f"Session dashboard token: {token}", flush=True)
     print(f"Mode: {args.mode}. Dashboard: http://{args.host}:{args.http_port}", flush=True)
+    print(motor_banner(args), flush=True)
     print("Controlled indoor demonstration only. No autonomous evacuation or whole-house SLAM.", flush=True)
     runtime = RoverRuntime(args.mode, args.port, args.enable_motors,
         camera_height=args.camera_height, robot_half_width=args.robot_half_width,

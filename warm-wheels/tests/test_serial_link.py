@@ -64,7 +64,7 @@ class SerialMotorTests(unittest.TestCase):
         for profile in ("PROFILE DISABLED UNVERIFIED", "PROFILE V4 UNVERIFIED"):
             with self.subTest(profile=profile):
                 motor, fake = self.create(profile)
-                with self.assertRaisesRegex(MotorLinkError, "unverified"):
+                with self.assertRaisesRegex(MotorLinkError, "unverified(.|\n)*HARDWARE_VERIFIED=1"):
                     motor.connect()
                 self.assert_failed_safe(motor, fake)
                 self.assertFalse(any(data.startswith(b"M ") for data in fake.writes))

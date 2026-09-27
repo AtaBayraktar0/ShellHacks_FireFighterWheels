@@ -61,7 +61,10 @@ class SerialMotor:
                         self._exchange(b"S\n", {"STOPPED 0", "STOPPED 1"})
                         return
                     elif line.startswith("PROFILE"):
-                        raise MotorLinkError("Firmware profile is unverified or disabled.")
+                        raise MotorLinkError(
+                            f"Firmware profile is unverified or disabled (Uno reported '{line}'). "
+                            "Its motor outputs stay off until you upload a build with HARDWARE_VERIFIED=1 "
+                            "after the raised-wheel checks in docs/hardware.md.")
                     # Bootloader noise is tolerated only before READY WN1.
                     elif ready:
                         raise MotorLinkError(f"Unexpected handshake response: {line}")

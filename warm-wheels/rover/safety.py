@@ -13,12 +13,13 @@ class SafetyGate:
     stop_distance_m: float = 0.65
     min_valid_fraction: float = 0.85
     max_pwm: int = 25
+    disabled_hint: str = ""
 
     def environment_reason(self, now, frame_at, clearance, valid_fraction, connected):
         if self.estop:
             return "Emergency stop latched; reset then arm explicitly"
         if not self.motion_enabled:
-            return "Motor output disabled at launch"
+            return "Motor output disabled at launch" + (f". {self.disabled_hint}" if self.disabled_hint else "")
         if not connected:
             return "Motor link unavailable"
         age = now - frame_at

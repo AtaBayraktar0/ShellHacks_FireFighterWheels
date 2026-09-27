@@ -16,6 +16,9 @@ from .safety import SafetyGate
 from .mission import MissionSimulator
 from .presentation import PresentationSimulator
 
+CAMERA_ONLY_HINT = ("Camera-only launch: restart with --enable-motors --port <Uno serial port> "
+                    "(or WARM_WHEELS_ENABLE_MOTORS=1 and WARM_WHEELS_SERIAL_PORT) after the bench checks")
+
 
 class RoverRuntime:
     def __init__(self, mode="demo", port=None, enable_motors=False, camera=None, motor=None,
@@ -27,7 +30,7 @@ class RoverRuntime:
                              obstacle_top_m=obstacle_height)
         self.camera = camera or (DemoCamera() if mode == "demo" else RealSenseCamera())
         self.motor = motor or (SimulationMotor() if mode == "demo" or not enable_motors else SerialMotor(port))
-        self.gate = SafetyGate(motion_enabled=mode == "demo" or enable_motors)
+        self.gate = SafetyGate(motion_enabled=mode == "demo" or enable_motors, disabled_hint=CAMERA_ONLY_HINT)
         self.lock = threading.RLock()
         self.presentation_lock = threading.RLock()
         self.motor_lock = threading.Lock()

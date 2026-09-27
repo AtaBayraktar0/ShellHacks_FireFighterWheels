@@ -15,6 +15,8 @@ import webbrowser
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE_DIR = ROOT / ".runtime"
+ENABLE_MOTORS_ENV = "WARM_WHEELS_ENABLE_MOTORS"
+SERIAL_PORT_ENV = "WARM_WHEELS_SERIAL_PORT"
 
 
 class _RejectRedirects(urllib.request.HTTPRedirectHandler):
@@ -61,8 +63,15 @@ def existing_session(mode):
         return None
 
 
+def landing_path(record, mode):
+    if mode == "demo":
+        return "/presentation"
+    # The /scan viewer has no arm/drive controls; the operator console does.
+    return "/" if record.get("motors") else "/scan"
+
+
 def launch_url(record, mode):
-    return f"http://127.0.0.1:{record['port']}" + ("/presentation" if mode == "demo" else "/scan") + "#token=" + quote(record["token"], safe="")
+    return f"http://127.0.0.1:{record['port']}" + landing_path(record, mode) + "#token=" + quote(record["token"], safe="")
 
 
 def main(argv=None):
@@ -74,6 +83,9 @@ def main(argv=None):
     parser.add_argument("--port", help="Explicit Uno COM port; only with --enable-motors")
     args = parser.parse_args(argv)
     os.chdir(ROOT)
+    if os.environ.get(ENABLE_MOTORS_ENV, "").strip().lower() in ("1", "true", "yes", "on"):
+        args.enable_motors = True
+    args.port = args.port or os.environ.get(SERIAL_PORT_ENV) or None
     if args.enable_motors and (args.mode != "hardware" or not args.port):
         parser.error("Physical motors require --mode hardware and an explicit --port COMx after bench verification.")
     existing = existing_session(args.mode)
@@ -94,12 +106,15 @@ def main(argv=None):
     token = secrets.token_urlsafe(24)
     env = os.environ.copy()
     env["ROVER_TOKEN"] = token
+    # Motor permission reaches the service only through the flags validated above.
+    env.pop(ENABLE_MOTORS_ENV, None)
+    env.pop(SERIAL_PORT_ENV, None)
     command = [sys.executable, "-m", "rover.app", "--mode", args.mode, "--http-port", str(port)]
     if args.enable_motors:
         command += ["--enable-motors", "--port", args.port]
     child = subprocess.Popen(command, cwd=ROOT, env=env)
     base = f"http://127.0.0.1:{port}"
-    record = {"port": port, "token": token, "pid": child.pid, "mode": args.mode}
+    record = {"port": port, "token": token, "pid": child.pid, "mode": args.mode, "motors": bool(args.enable_motors)}
     try:
         for _ in range(100):
             if child.poll() is not None:
@@ -115,7 +130,10 @@ def main(argv=None):
             raise RuntimeError("Dashboard did not become ready in time.")
         STATE_DIR.mkdir(exist_ok=True)
         (STATE_DIR / f"{args.mode}.json").write_text(json.dumps(record), encoding="utf-8")
-        print(f"\nW.A.R.M wheels READY: {base}" + ("/presentation" if args.mode == "demo" else "/scan"), flush=True)
+        print(f"\nW.A.R.M wheels READY: {base}" + landing_path(record, args.mode), flush=True)
+        if args.mode == "hardware":
+            print(f"Motors: ENABLED on {args.port}; arm in the dashboard, then hold a drive control." if args.enable_motors
+                  else "Motors: OFF (camera-only). Relaunch with --enable-motors --port COMx for physical motion.", flush=True)
         print("The launcher signs the browser in automatically. Keep this window open; Ctrl+C stops the service.", flush=True)
         print(f"Manual sign-in token: {token}", flush=True)
         if not args.no_browser:

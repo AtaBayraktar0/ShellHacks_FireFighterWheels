@@ -75,6 +75,45 @@ python -m rover.app --mode hardware --host 0.0.0.0 \
 
 Use the actual `/dev/serial/by-id/...` path when available. Motor output additionally requires a verified firmware profile, explicit **Arm rover**, a fresh valid forward depth view, and holding a drive button. Power-up never arms or resumes a mission.
 
+### Enabling real motion (checklist)
+
+If the camera and scan work but the car never moves, you are almost certainly
+running camera-only. The startup log prints `Motors: OFF (camera-only)` and the
+dashboard's drive panel shows `Motor output disabled at launch`. Physical motion
+needs every step below, in order:
+
+1. **Firmware opt-in.** The shipped sketch has `HARDWARE_VERIFIED 0`, so the Uno
+   reports `PROFILE V4 UNVERIFIED` and refuses drive commands; the server then
+   fails to start with motors enabled. After the raised-wheel checks in
+   [hardware.md](docs/hardware.md), upload a verified build
+   (`firmware_upload.cmd --verified --confirm-pin-check --wheels-raised --port COMx --confirm-port COMx --confirm-uno`
+   on Windows, or set `HARDWARE_VERIFIED 1` and upload with the Arduino IDE).
+2. **Launch opt-in.** Start in hardware mode with motor output enabled, using one of:
+   - `python -m rover.app --mode hardware --host 0.0.0.0 --enable-motors --port /dev/serial/by-id/YOUR_UNO`
+   - `WARM_WHEELS_ENABLE_MOTORS=1 WARM_WHEELS_SERIAL_PORT=/dev/serial/by-id/YOUR_UNO python -m rover.app --mode hardware --host 0.0.0.0`
+   - On the Pi: `bash scripts/start_pi_rover.sh --port /dev/serial/by-id/YOUR_UNO --enable-motors`
+     (`start_pi_camera.sh` is camera-only by design).
+   - On a Windows laptop with the car on USB: `START_HARDWARE.cmd --enable-motors --port COMx`.
+
+   The startup log must print `Motors: ENABLED on <port>`. `--enable-motors` is
+   rejected in demo mode.
+3. **Use the operator console.** Drive controls live on `/` (or `/pi` when the
+   laptop is connected to the Pi through **Connect Raspberry Pi**). The `/scan`
+   viewer has no drive controls, and the retained room scan is refused while
+   motors are enabled.
+4. **Arm.** Press **Arm rover**. It stays disabled, with the reason shown, until
+   the motor link is connected, the depth frame is fresh, at least 85% of the
+   depth image is valid, and the forward window is clear for at least 0.65 m.
+5. **Hold to drive.** Hold Forward / Left arc / Right arc. Releasing, a stale
+   frame, an obstacle, a lost link, or **Emergency stop** stops the motors.
+
+Still active when motors are enabled: emergency stop latch (UI, API and
+firmware), the 25% PWM cap, forward-only gentle arcs, the 0.30 s hold-to-drive
+command lease, the 0.45 s camera freshness check, the depth-validity and 0.65 m
+obstacle stop, the 350 ms firmware watchdog, and acknowledged serial commands
+that latch a stop on any failure. There is no physical autonomous driving:
+route plans are previews and hardware missions are rejected.
+
 On your phone or PC, open `http://PI_IP:8000` on the same trusted network. Use one operator console. Network examples use unencrypted HTTP for the local demo; do not publish/port-forward this control server. Use an SSH tunnel or a TLS proxy for networks you do not trust. The access token protects images and all API/control endpoints.
 
 ## Person and fire detection on the PC

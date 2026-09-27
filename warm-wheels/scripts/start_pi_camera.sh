@@ -14,5 +14,7 @@ echo "Enter http://PI_ADDRESS:8000 and the token below."
 echo "Optional direct browser view: http://PI_ADDRESS:8000/"
 echo "Session access token: ${ROVER_TOKEN}"
 echo "Token is printed for this session only; it is not written to a report."
-echo "Motor output is disabled. Ctrl+C stops the server."
+echo "Motor output is disabled (camera-only). For supervised driving after bench checks:"
+echo "  bash scripts/start_pi_rover.sh --port /dev/serial/by-id/YOUR_UNO --enable-motors"
+echo "Ctrl+C stops the server."
 exec .venv-pi/bin/python -m rover.app --mode hardware --host 0.0.0.0 --http-port 8000
