@@ -58,6 +58,7 @@ python -m firebot simulate --block-return --output demo/blocked-return
 | `firebot/vision.py` | Real D435 frames, floor mapping, flame color, and PLY export |
 | `firebot/motors.py` | Real USB serial commands and short motor pulses |
 | `firebot/mission.py` | Real sensor checks, planning, measured waypoints, and return |
+| `firebot/isaac_bridge.py` | Isaac Sim 6.1 camera, pose, and wheel adapters |
 | `firebot/simulation.py` | Clearly separated pretend-room algorithm demo |
 | `firebot/cli.py` | Hardware test commands and configuration checks |
 | `firmware/motor_listener/motor_listener.ino` | Uno motor-only executor |
@@ -163,6 +164,32 @@ The forward-facing D435 cannot see behind or directly under the car. Multi-view
 scanning and reliable localization must be built and tested before calling this
 a fully autonomous robot.
 
+## Isaac Sim 6.1
+
+The shared mission code can also use simulated devices. `isaac_bridge.py`
+changes Isaac RGB, depth, pose, and wheel controls into the same simple objects
+used by the real robot. A* and the safety checks therefore stay unchanged.
+
+Build an Elegoo car USD with two wheel joints, correct wheel size, car size,
+mass, friction, and a camera mounted where the D435 will sit. Build the cardboard
+display as a second USD scene. In an Isaac 6.1 standalone script:
+
+1. Start `SimulationApp` before importing other Isaac modules.
+2. Read RGB and depth from the simulated camera.
+3. Pass those arrays and its camera intrinsics to `IsaacCamera`.
+4. Pass the robot world pose to `IsaacPoseReader`.
+5. Use Isaac's experimental `DifferentialController` inside the two callbacks
+   given to `IsaacMotors`.
+6. Call `run_mission` with those three adapters.
+
+Run the script with Isaac Sim's `python.bat` on Windows. Isaac Sim 6.1 uses its
+own Python environment, so do not run this part from the project's normal venv.
+The bridge math has automated tests here. The complete simulation still needs
+the car USD, scene USD, wheel joint names, camera path, and measured wheel sizes.
+
+References: [Isaac Sim 6.1 mobile robot controllers](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/robot_simulation/mobile_robot_controllers.html)
+and [standalone Python workflow](https://docs.isaacsim.omniverse.nvidia.com/latest/python_scripting/manual_standalone_python.html).
+
 ## Validation
 
 - Planning, map safety, flame filtering, pose age, steering, and motor failure
@@ -178,3 +205,4 @@ a fully autonomous robot.
 
 This project contains work created outside any future hackathon window. Check the
 event rules before submitting it as newly created hackathon work.
+
