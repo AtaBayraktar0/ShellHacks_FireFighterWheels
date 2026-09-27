@@ -1,5 +1,10 @@
 # Fire-avoidance robot — Python prototype
 
+**Updated Isaac launcher:** root `run_isaac.py` now generates our small-room
+scene using the bundled CODEX integration. No external USD files are required.
+Follow [ISAAC_ROOM.md](ISAAC_ROOM.md); it supersedes the external-USD Isaac
+setup below. The real-robot tools remain separate.
+
 Local software for a Raspberry Pi 4, Intel RealSense D435, and Elegoo V4.0 Uno
 motor controller. There are no cloud services. A separate algorithm-only demo
 uses a pretend room so A* and return behavior can be tested without hardware.
@@ -59,6 +64,8 @@ python -m firebot simulate --block-return --output demo/blocked-return
 | `firebot/motors.py` | Real USB serial commands and short motor pulses |
 | `firebot/mission.py` | Real sensor checks, planning, measured waypoints, and return |
 | `firebot/isaac_bridge.py` | Isaac Sim 6.1 camera, pose, and wheel adapters |
+| `run_isaac.py` | Standalone Isaac Sim 6.1 mission launcher |
+| `isaac_config.json` | Isaac USD paths, joints, camera, and wheel measurements |
 | `firebot/simulation.py` | Clearly separated pretend-room algorithm demo |
 | `firebot/cli.py` | Hardware test commands and configuration checks |
 | `firmware/motor_listener/motor_listener.ino` | Uno motor-only executor |
@@ -187,6 +194,19 @@ own Python environment, so do not run this part from the project's normal venv.
 The bridge math has automated tests here. The complete simulation still needs
 the car USD, scene USD, wheel joint names, camera path, and measured wheel sizes.
 
+After creating those two USD files, edit `isaac_config.json`. Replace both file
+paths and confirm the prim paths, wheel joint names, wheel measurements, and
+camera intrinsics. Set `ready` to `true` only after checking them. From Isaac
+Sim's installation folder on Windows, run:
+
+```powershell
+python.bat C:\path\to\ShellHacks_FireFighterWheels\run_isaac.py
+```
+
+Add `--headless` when a visible Isaac window is not needed. `run_isaac.py`
+loads both USD files, starts the RTX color/depth camera, reads the simulated
+pose, controls the wheels, and calls the shared `run_mission` loop.
+
 References: [Isaac Sim 6.1 mobile robot controllers](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/robot_simulation/mobile_robot_controllers.html)
 and [standalone Python workflow](https://docs.isaacsim.omniverse.nvidia.com/latest/python_scripting/manual_standalone_python.html).
 
@@ -205,4 +225,3 @@ and [standalone Python workflow](https://docs.isaacsim.omniverse.nvidia.com/late
 
 This project contains work created outside any future hackathon window. Check the
 event rules before submitting it as newly created hackathon work.
-

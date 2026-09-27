@@ -98,6 +98,6 @@ class RaycastCamera:
                 for k in range(cfg.min_obstacle_hits+1):
                     point=local(cx+(d+.005*k)*c,cy+(d+.005*k)*s)
                     obstacles.append(point)
-                    if 'FlameProp' in path:
+                    if 'FlameProp' in path or 'Room_Flame' in path:
                         fire.append(point)
         return Observation(*(np.asarray(p,dtype=float).reshape(-1,2) for p in (floor,obstacles,fire)))

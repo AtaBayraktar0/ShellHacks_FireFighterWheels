@@ -19,7 +19,7 @@ def parser():
     p=argparse.ArgumentParser(description='CODEX fire robot — Isaac Sim 6.1')
     p.add_argument('--headless',action='store_true')
     p.add_argument('--sensor',choices=['rgbd','raycast'],default='rgbd')
-    p.add_argument('--layout',choices=['demo','flame'],default='demo')
+    p.add_argument('--layout',choices=['demo','flame','room'],default='demo')
     p.add_argument('--config',type=Path)
     p.add_argument('--goal',type=float,nargs=2,metavar=('X','Y'))
     p.add_argument('--speed',type=float,default=.15,help='timed-drive speed in m/s')
@@ -65,6 +65,9 @@ def main():
         from isaac.control import IsaacBase
         from isaac.sensors import RgbdCamera,RaycastCamera
         cfg=Config.load(args.config)
+        if args.layout == 'room':
+            from isaac.room_layout import configure
+            configure(cfg)
         if not cfg.use_imu:
             raise ValueError('Isaac runner requires use_imu=True; ideal physics yaw supplies the simulated gyro')
         if not cfg.edge_is_wall:

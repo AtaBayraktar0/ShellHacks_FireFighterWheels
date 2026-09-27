@@ -64,6 +64,19 @@ def create_scene(stage, cfg, layout):
     prop.AddTranslateOp().Set(Gf.Vec3d(*flame,.12))
     prop.CreateDisplayColorAttr([Gf.Vec3f(1.,.15,0.)])
     UsdPhysics.CollisionAPI.Apply(prop.GetPrim())
+    if layout == 'room':
+        # Replace the stock prop with our original room's solid shapes.
+        stage.RemovePrim('/World/FlameProp')
+        from .room_layout import shapes
+        boxes = []
+        for name, bounds, height, color in shapes():
+            x0,y0,x1,y1 = bounds
+            cube(stage, '/World/Room_'+name,
+                 ((x0+x1)/2,(y0+y1)/2,height/2),
+                 (x1-x0,y1-y0,height), color)
+            boxes.append(bounds)
+            if name == 'Flame':
+                flame = ((x0+x1)/2,(y0+y1)/2)
     for name, xy, color in [('Home',(0.,0.),(.1,.6,.9)), ('Goal',cfg.goal_xy,(.1,.8,.2))]:
         cube(stage, '/World/'+name, (*xy,.001), (.09,.09,.002), color, collision=False)
     UsdGeom.Xform.Define(stage, ROBOT)
