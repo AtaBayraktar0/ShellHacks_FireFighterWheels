@@ -11,6 +11,7 @@ from firebot.mission import Mission, read_pose, steering
 from firebot.simulation import build_demo_world, scan_demo_sensor, simulate
 from firebot.motors import Motors
 from firebot.cli import load_config
+from firebot.isaac_bridge import depth_to_xyz, IsaacCamera, IsaacMotors, IsaacPoseReader
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -141,6 +142,24 @@ class SensorTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             motors.pulse("FWD")
         self.assertEqual(commands, ["FWD 70 100", "STOP"])
+
+    def test_isaac_depth_matches_camera_axes(self):
+        depth = np.ones((3, 3), dtype=np.float32)
+        xyz = depth_to_xyz(depth, 2, 2, 1, 1)
+        np.testing.assert_allclose(xyz[1, 1], [0, 0, 1])
+        np.testing.assert_allclose(xyz[2, 2], [.5, .5, 1])
+
+    def test_isaac_adapters(self):
+        rgb = np.zeros((2, 2, 3), dtype=np.uint8)
+        rgb[0, 0] = [10, 20, 30]
+        camera = IsaacCamera(lambda: (rgb, np.ones((2, 2))), (1, 1, 0, 0))
+        self.assertEqual(camera.read().bgr[0, 0].tolist(), [30, 20, 10])
+        pose = IsaacPoseReader(lambda: ([1, 2, 0], [1, 0, 0, 0]))()
+        self.assertEqual(pose, Pose(1, 2, 0))
+        writes = []
+        motors = IsaacMotors(lambda linear, angular: writes.append((linear, angular)), lambda _: None)
+        motors.pulse("LEFT")
+        self.assertEqual(writes, [(0, 1.2), (0, 0)])
 
 
 if __name__ == "__main__":
