@@ -79,8 +79,8 @@ def save_log(path, mission, samples, status):
     Path(path).write_text(json.dumps(data, indent=2), encoding="utf-8")
 
 
-def run_live(camera, motors, grid, config, pose_file, output):
-    """Run the guarded loop for the real camera and motors."""
+def run_mission(camera, motors, grid, config, pose_reader, output):
+    """Run one mission with real or simulated devices."""
     from .vision import flame_mask, update_map
 
     if not config["calibrated"]:
@@ -92,9 +92,9 @@ def run_live(camera, motors, grid, config, pose_file, output):
         for _ in range(10000):
             # Stop before every real camera scan.
             motors.stop()
-            before = read_pose(pose_file, config["pose_max_age_s"])
+            before = pose_reader()
             frame = camera.read()
-            pose = read_pose(pose_file, config["pose_max_age_s"])
+            pose = pose_reader()
             yaw_delta = (pose.yaw - before.yaw + math.pi) % (2 * math.pi) - math.pi
             if math.hypot(pose.x-before.x, pose.y-before.y) > 0.01 or abs(yaw_delta) > 0.03:
                 raise RuntimeError("Robot moved during stopped scan")
@@ -127,7 +127,7 @@ def run_live(camera, motors, grid, config, pose_file, output):
                 raise RuntimeError("Robot left the planned segment")
             if now - last_progress > 20:
                 raise RuntimeError("Waypoint timed out; check localization and motors")
-            fresh = read_pose(pose_file, config["pose_max_age_s"])
+            fresh = pose_reader()
             if math.dist((fresh.x, fresh.y), (pose.x, pose.y)) > 0.01:
                 raise RuntimeError("Position changed before command")
             # Move one short pulse before checking the sensors again.
@@ -144,3 +144,11 @@ def run_live(camera, motors, grid, config, pose_file, output):
         finally:
             save_log(output / "mission.json", mission, samples, status)
     return status
+
+
+def run_live(camera, motors, grid, config, pose_file, output):
+    """Run a mission with the real robot's pose file."""
+    def pose_reader():
+        return read_pose(pose_file, config["pose_max_age_s"])
+
+    return run_mission(camera, motors, grid, config, pose_reader, output)
